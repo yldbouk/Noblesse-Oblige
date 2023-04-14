@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
-{
+{ 
+    public GameObject canvases;
+
     public Button[] buttons = { };
 /*  1 - Credits
 
@@ -12,16 +14,17 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Main Menu Manager Loaded");
+ 
+        // Set button listeners
         buttons[0].onClick.AddListener(delegate { switchViews("credits"); });
         buttons[1].onClick.AddListener(delegate { switchViews("main"); });
 
+        // link cameras to canvases
+        foreach (Canvas canvas in canvases.GetComponentsInChildren<Canvas>())
+            canvas.worldCamera = Camera.main;
 
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void switchViews(string name)

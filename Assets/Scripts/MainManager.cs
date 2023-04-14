@@ -10,7 +10,7 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("Main Manager Loaded");
 
 
 
