@@ -17,6 +17,15 @@ public class MainManager : MonoBehaviour
         Debug.Log("Main Manager Loaded");
 
 
+    
+
+
+
+
+
+
+
+
         if (debugMode)
         {
             GameObject.Find("debugmenu").GetComponent<Canvas>().enabled = true;
