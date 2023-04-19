@@ -29,8 +29,7 @@ public class Controler : MonoBehaviour
          float newTileY = floorY + tileHeight / 2.0f;
          
          GameObject prefab = emptyFloorTilePrefab;
-         int index = Random.Range(0, floorTilePrefab.length);
-         prefab = floorTilePrefab[index];
+         
 
          Instantiate(prefab, new Vector3(newTileX, newTileY, 0), Quaternion.identity);
 
