@@ -14,10 +14,10 @@ TagManager:
   - Water
   - UI
   - ChatachterLayer
+  - GroundLayer
   - ForegroundLayer
   - MiddlegroundLayer
   - BackgroundLayer
-  - 
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: BackgroundSorting
     uniqueID: 335861295
+    locked: 0
+  - name: GroundSorting
+    uniqueID: 3699798981
     locked: 0
   - name: CharacterSorting
     uniqueID: 3585779043

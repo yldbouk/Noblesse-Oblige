@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1986894296920244413}
   - component: {fileID: -8821099112332529759}
   - component: {fileID: -5225524043208606405}
-  - component: {fileID: -8208982169486116617}
+  - component: {fileID: 6804460171792585072}
   m_Layer: 6
   m_Name: testingGroundsKnight
   m_TagString: Player
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -709188253
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1789041203, guid: fd47e4d17b6cee34ba7babe0401873e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,7 +151,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.1549795}
   m_Size: {x: 0.67179775, y: 0.8887687}
   m_Direction: 0
---- !u!114 &-8208982169486116617
+--- !u!114 &6804460171792585072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -160,6 +160,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3897100181103919668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8348be129d2c01444823dc4d6639859c, type: 3}
+  m_Script: {fileID: 11500000, guid: d00f4f910147df0499abfcbc20e9ff7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  _detectorCount: 10
+  _detectionRayLength: 0.1
+  _rayBuffer: 0.1
+  _acceleration: 90
+  _moveClamp: 13
+  _deAcceleration: 60
+  _apexBonus: 2
+  _fallClamp: -10
+  _minFallSpeed: 5
+  _maxFallSpeed: 25
+  _jumpHeight: 10
+  _jumpApexThreshold: 5
+  _coyoteTimeThreshold: 0.1
+  _jumpBuffer: 0.1
+  _jumpEndEarlyGravityModifier: 3
+  _freeColliderIterations: 10
