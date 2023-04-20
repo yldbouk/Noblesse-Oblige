@@ -39,7 +39,6 @@ public class OpeningCutsceneManager : MonoBehaviour
         mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         blip = prologueText.gameObject.GetComponent<AudioSource>();
 
-        canvas.transform.Find("World").gameObject.SetActive(false);
         canvas.transform.Find("BlackBars").gameObject.SetActive(false);
 
         StartCoroutine(startCutScene());
@@ -78,7 +77,6 @@ public class OpeningCutsceneManager : MonoBehaviour
         Destroy(prologueText.transform.parent.gameObject);
 
         // enable the world
-        canvas.transform.Find("World").gameObject.SetActive(true);
         canvas.transform.Find("BlackBars").gameObject.SetActive(true);
 
         // update references
