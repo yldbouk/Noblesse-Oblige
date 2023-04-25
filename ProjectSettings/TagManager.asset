@@ -43,14 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ForegroundSorting
-    uniqueID: 1870065961
+  - name: BackgroundSorting
+    uniqueID: 335861295
     locked: 0
   - name: MiddlegroundSorting
     uniqueID: 362758425
     locked: 0
-  - name: BackgroundSorting
-    uniqueID: 335861295
+  - name: ForegroundSorting
+    uniqueID: 1870065961
     locked: 0
   - name: GroundSorting
     uniqueID: 3699798981
