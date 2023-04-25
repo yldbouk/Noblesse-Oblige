@@ -14,6 +14,11 @@ public class movement : MonoBehaviour
 
     public float speed = 10f;
     public float m_JumpForce = 400f;
+    private Rigidbody2D m_Rigidbody;
+    private SpriteRenderer m_Sprite;
+    private Animator m_Animator;
+    private float inputX;
+
     [Range(0, 1)] public float m_CrouchSpeed = .36f;           // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] public float m_MovementSmoothing = .05f;   // How much to smooth out the movement
     [SerializeField] public bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
@@ -21,6 +26,7 @@ public class movement : MonoBehaviour
     [SerializeField] public Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] public Transform m_CeilingCheck;                          // A position marking where to check for ceilings
     [SerializeField] public Collider2D m_CrouchDisableCollider;
+
 
     const float k_GroundedRadius = .2f;                         // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;
@@ -31,19 +37,39 @@ public class movement : MonoBehaviour
     [Space]
     public UnityEvent OnLandEvent;
     public class BoolEvent : UnityEvent<bool> { };
-
     public BoolEvent OnCrouchEvent;
+
+
+
+    private void Start()
+    {
+        //calls the rigidbody component to help with jumps
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+
+        //calls the sprite renderer so the sprite can flip depending on which way it is facing
+        m_Sprite = GetComponent<SpriteRenderer>();
+
+        //calls the animator component to check the conditions of the different transitions between animation states
+        m_Animator = GetComponent<Animator>();
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
         
 
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxisRaw("Vertical");
-        
+        inputX = Input.GetAxisRaw("Horizontal");
+        //float inputY = Input.GetAxisRaw("Vertical");
+
+        //determines if the transition between running (left, right, or standing still) is true or false
+
+        UpdateAnimationState();
+
 
         Vector3 MovementX = new Vector3(speed * inputX, 0.0f, 0.0f);
-        Vector3 MovementY = new Vector3(0.0f, m_JumpForce * inputY, 0.0f);
+        //Vector3 MovementY = new Vector3(0.0f, m_JumpForce * inputY, 0.0f);
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
         bool decent = true;
@@ -61,16 +87,16 @@ public class movement : MonoBehaviour
                     OnLandEvent.Invoke();
             }
         }
-
+        /*
         if ((m_Grounded == false) && (inputY != m_JumpForce))
         {
             //Debug.Log(decent);
         }
-     
+     */
 
-        if((m_Grounded == true) && (inputY > 0))
+        if((m_Grounded == true) && (Input.GetButtonDown("Jump")))
         {   
-            transform.Translate(MovementY * Time.fixedDeltaTime);
+            m_Rigidbody.velocity = new Vector2(m_Rigidbody.velocity.x, m_JumpForce);
             Debug.Log(m_Grounded);
         }
         
@@ -78,4 +104,24 @@ public class movement : MonoBehaviour
         
     }
 
+    private void UpdateAnimationState()
+    {
+
+        //determines if the transition between running (left, right, or standing still) is true or false
+        if (inputX > 0f)
+        {
+            m_Animator.SetBool("running", true);
+            m_Sprite.flipX = false;
+        }
+        else if (inputX < 0f)
+        {
+            m_Animator.SetBool("running", true);
+            m_Sprite.flipX = true;
+        }
+        else
+        {
+            m_Animator.SetBool("running", false);
+        }
+
+    }
 }
