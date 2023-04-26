@@ -24,14 +24,13 @@ public class Controler : MonoBehaviour
         // while our tile X position is still within our boundaries
         while (newTileX < floorMaxX)
         {
+
          // calculate starting Y position of the bottom-most tile 
-         // in this column
-         float newTileY = floorY + tileHeight / 2.0f;
-         
+         // in this column         
          GameObject prefab = emptyFloorTilePrefab;
          
 
-         Instantiate(prefab, new Vector3(newTileX, newTileY, 0), Quaternion.identity);
+         Instantiate(prefab, new Vector3(newTileX, 0, 0), Quaternion.identity);
 
          newTileX += tileWidth;
         }
