@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e07427998c342649b3608eb4c3f6d56
+guid: 8981f727457c3364db905f91a81c42bc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,106 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: night-town-background-town_0
+      name: 64x64_Atlas_Horse_Run_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 22
+        x: 4
+        y: 65
+        width: 59
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9af885a6191752748851562e5b738f97
+      internalID: -1142657607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64x64_Atlas_Horse_Run_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 65
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c31434badb15b42b0abf655c75f8da
+      internalID: 998732612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64x64_Atlas_Horse_Run_2
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 67
+        width: 57
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caaf899f53753f34c8c7940f6e4ed5e7
+      internalID: 1167446467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64x64_Atlas_Horse_Run_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 1
+        width: 59
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2c478711b449a941935fca251529adb
+      internalID: 1487182058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 64x64_Atlas_Horse_Run_4
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 1
         width: 60
-        height: 43
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e87734551da3e124f89700cbac3e35d3
-      internalID: -706533650
+      spriteID: 62f9e2e6ba9a92c4682faee5309161f3
+      internalID: 1856987992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: night-town-background-town_1
+      name: 64x64_Atlas_Horse_Run_5
       rect:
         serializedVersion: 2
-        x: 87
-        y: 34
-        width: 9
-        height: 15
+        x: 131
+        y: 1
+        width: 59
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a026d317bb8045143b66fc5323ea74a1
-      internalID: -1819091732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: night-town-background-town_2
-      rect:
-        serializedVersion: 2
-        x: 98
-        y: 0
-        width: 66
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 608cde62494daca40adb430f6c6bb5b0
-      internalID: 729169100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: night-town-background-town_3
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 11
-        width: 20
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 686d23a35222d57439fe77e3810617af
-      internalID: 713107156
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: night-town-background-town_4
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 0
-        width: 270
-        height: 94
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 0, z: 114, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6abb23d31c2a9794fa1768ac93ec107f
-      internalID: 1256708709
+      spriteID: d2b83f9be1f010d44aade7d58b5a684a
+      internalID: -292595013
       vertices: []
       indices: 
       edges: []
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      night-town-background-town_0: -706533650
-      night-town-background-town_1: -1819091732
-      night-town-background-town_2: 729169100
-      night-town-background-town_3: 713107156
-      night-town-background-town_4: 1256708709
+      64x64_Atlas_Horse_Run_0: -1142657607
+      64x64_Atlas_Horse_Run_1: 998732612
+      64x64_Atlas_Horse_Run_2: 1167446467
+      64x64_Atlas_Horse_Run_3: 1487182058
+      64x64_Atlas_Horse_Run_4: 1856987992
+      64x64_Atlas_Horse_Run_5: -292595013
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e07427998c342649b3608eb4c3f6d56
+guid: 03028e6d5bf54d64d9aa6972a73dd47e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,106 +105,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: night-town-background-town_0
+      name: outline_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 22
-        width: 60
-        height: 43
+        x: 29
+        y: 78
+        width: 15
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e87734551da3e124f89700cbac3e35d3
-      internalID: -706533650
+      spriteID: 770bf2c67e171054fb6fb80a6ed62bb7
+      internalID: 163196289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: night-town-background-town_1
+      name: outline_1
       rect:
         serializedVersion: 2
-        x: 87
-        y: 34
-        width: 9
-        height: 15
+        x: 94
+        y: 78
+        width: 15
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a026d317bb8045143b66fc5323ea74a1
-      internalID: -1819091732
+      spriteID: 804856fb55dbef44cb870fd8b47dba44
+      internalID: -704353494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: night-town-background-town_2
+      name: outline_2
       rect:
         serializedVersion: 2
-        x: 98
-        y: 0
-        width: 66
-        height: 91
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 608cde62494daca40adb430f6c6bb5b0
-      internalID: 729169100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: night-town-background-town_3
-      rect:
-        serializedVersion: 2
-        x: 168
-        y: 11
-        width: 20
+        x: 158
+        y: 77
+        width: 15
         height: 39
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 686d23a35222d57439fe77e3810617af
-      internalID: 713107156
+      spriteID: bfd3e921e383df9409a3843c4d10547a
+      internalID: 153254957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: night-town-background-town_4
+      name: outline_3
       rect:
         serializedVersion: 2
-        x: 191
-        y: 0
-        width: 270
-        height: 94
+        x: 29
+        y: 13
+        width: 15
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 0, z: 114, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6abb23d31c2a9794fa1768ac93ec107f
-      internalID: 1256708709
+      spriteID: d6665bda98ea09b4b96029cdea57cc35
+      internalID: 393103217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: outline_4
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 13
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bcba29339060c40b1a9eacb682afe2
+      internalID: 1687389448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: outline_5
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 14
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13ede1fa08c95e24cbe6e8385e4f8917
+      internalID: 73311300
       vertices: []
       indices: 
       edges: []
@@ -220,11 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      night-town-background-town_0: -706533650
-      night-town-background-town_1: -1819091732
-      night-town-background-town_2: 729169100
-      night-town-background-town_3: 713107156
-      night-town-background-town_4: 1256708709
+      outline_0: 163196289
+      outline_1: -704353494
+      outline_2: 153254957
+      outline_3: 393103217
+      outline_4: 1687389448
+      outline_5: 73311300
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
