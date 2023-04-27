@@ -14,13 +14,9 @@ public class OpeningCutsceneManager : MonoBehaviour
         "The war was a long and grueling struggle, but [PRINCE NAME]'s leadership and bravery proved crucial to his side's eventual victory. His sword and shield were stained with the blood of the enemy, and his armor was dented and scarred from countless battles. But he emerged from the conflict a hero, and the kingdom celebrated his triumph upon his return.",
         "As [PRINCE NAME] rode his white stallion through the countryside, the weight of the war still hung heavy on his mind. He had seen much death and destruction, and the scars left by the conflict would never fully heal. But he was proud of what he had accomplished, and knew that his kingdom was stronger for having fought alongside its allies.",
         "As [PRINCE NAME] rode closer to his kingdom, he began to notice something odd. The usually bustling towns and villages were eerily quiet, and there was no one around to greet him upon his triumphant return.",
-        "As he rode past the kingdom's walls, he was met with a scene of utter devastation. The once-great city he called home lay in ruins, and small fires dotted the landscape.",
-        "Bodies were strewn about, and the smell of death hung heavy in the air. The sight was almost too much for [PRINCE NAME] to bear, and his heart sank as he realized that his brothers, staying behind to protect the kingdom, failed.",
-        "Without hesitation, he spurred his horse forward, his mind racing with questions and his heart heavy with grief. He needed to find someone, anyone, who could explain what had happened.",
-        "As he made his way through the ruined streets, he searched for any signs of life. But the kingdom was silent, and there was no one to be found. Eventually, he arrived at the great castle that had once been the heart of his kingdom.",
-        "As he rushed through the castle gates, he was met with a sight that he would never forget. The great halls that had once been filled with life and laughter were now empty and silent.",
-        "The walls were scorched and blackened, and the few surviving guards, unmoving, looked up at him with haunted eyes.",
-        "Desperate for answers, [PRINCE NAME] hurried to convene with the kingdom's top officials. But when he arrived at the council chambers, he found them empty and abandoned."
+        "When he rode past the kingdom's walls, he was met with a scene of utter devastation. The once-great city he called home lay in ruins, with small fires dotting the landscape.",
+        "Bodies were strewn about, and the smell of death hung heavy in the air. The sight was almost too much for [PRINCE NAME] to bear, and his heart sank as he realized that his brothers, staying behind to protect the kingdom, had failed.",
+        "He needed to find someone, anyone, who could explain what had happened. But the castle was empty and abandoned. All that remained was one servant in the middle of the main hall."
     };
 
     MainManager mainManager;
@@ -50,12 +46,7 @@ public class OpeningCutsceneManager : MonoBehaviour
     {
         yield return mainManager.OverlayFadeIn();
         yield return new WaitForSeconds(.5f);
-        yield return Prologue();
 
-    }
-
-    IEnumerator Prologue()
-    {
         yield return DisplayCharacterByCharacter(prologueParagraphs[0]);
         yield return waitForInput();
 
@@ -78,6 +69,7 @@ public class OpeningCutsceneManager : MonoBehaviour
 
         // enable the world
         canvas.transform.Find("BlackBars").gameObject.SetActive(true);
+        foreach (GameObject c in GameObject.FindGameObjectsWithTag("Player")) c.GetComponent<SpriteRenderer>().enabled = true;
 
         // update references
         prologueText = canvas.transform.Find("BlackBars").GetComponentInChildren<Text>();
@@ -87,27 +79,19 @@ public class OpeningCutsceneManager : MonoBehaviour
         // scene 2... action
         yield return mainManager.OverlayFadeIn(1000);
 
-        // we are now viewing the world
-        // TODO: animations
-
         yield return DisplayCharacterByCharacter(prologueParagraphs[4], true);
         yield return new WaitForSeconds(5);
 
         yield return DisplayCharacterByCharacter(prologueParagraphs[5], true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
 
         yield return DisplayCharacterByCharacter(prologueParagraphs[6], true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
 
         yield return DisplayCharacterByCharacter(prologueParagraphs[7], true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(4);
 
-        yield return DisplayCharacterByCharacter(prologueParagraphs[8], true);
-        yield return new WaitForSeconds(5);
-
-        yield return DisplayCharacterByCharacter(prologueParagraphs[9], true);
-        yield return new WaitForSeconds(5);
-        
+        yield return mainManager.OverlayFadeOut(3000);
 
     }
 
@@ -142,5 +126,4 @@ public class OpeningCutsceneManager : MonoBehaviour
         prologueText.text += "\n\n";
     }
 
-   
 }
