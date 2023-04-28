@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -41,9 +42,15 @@ public class MainMenuManager : MonoBehaviour
         } else Debug.Log("Switching menu view to " + view);
         foreach (Transform t in canvas.transform) t.gameObject.SetActive(t.name == view);
     }
-
-    public void PlayButtonPressed() {  }
-
+    public void ButtonPressed(String op)
+    {
+        switch (op)
+        {
+            case "play": StartCoroutine(StartGame()); break;
+            case "exit": StartCoroutine(ExitGame()); break;
+        }
+    }
+    
     IEnumerator StartGame()
     {
         Debug.Log("Play button pressed");
@@ -52,11 +59,14 @@ public class MainMenuManager : MonoBehaviour
         yield return StartCoroutine(mainManager.OverlayFadeOut(1000));
 
         // load next scene
-        SceneManager.UnloadSceneAsync("MainMenu");
-
-
-        
-
+        mainManager.LoadNewLevel("Prologue", "MainMenu");
+    }
+    IEnumerator ExitGame()
+    {
+        Debug.Log("Exiting Game...");
+        yield return mainManager.OverlayFadeOut(3000);
+        Application.Quit(0);
     }
 
 }
+
