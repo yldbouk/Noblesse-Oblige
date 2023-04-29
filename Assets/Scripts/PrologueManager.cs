@@ -5,9 +5,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OpeningCutsceneManager : MonoBehaviour
+public class PrologueManager : MonoBehaviour
 {
-    private string[] prologueParagraphs =
+    private readonly string[] prologueParagraphs =
     {
         "In the land of [KINGDOM NAME], nestled deep within the rolling hills and verdant forests, a great kingdom flourished. Its people were renowned for their skill in archery and swordsmanship, and their shining cities boasted towering spires and grand castles. Prince [PRINCE NAME] was the kingdom's greatest champion, his noble lineage and formidable combat skills earning him the respect of all who knew him.",
         "But when war came knocking at [KINGDOM NAME]'s door, the kingdom could not turn a blind eye to the plight of its ally. The call to arms was sounded, and [PRINCE NAME] answered without hesitation, leading the kingdom's finest warriors to the front lines.",
@@ -74,7 +74,7 @@ public class OpeningCutsceneManager : MonoBehaviour
         // update references
         prologueText = canvas.transform.Find("BlackBars").GetComponentInChildren<Text>();
         blip = prologueText.gameObject.GetComponent<AudioSource>();
-        GameObject.FindGameObjectWithTag("parallax").AddComponent<OpeningCutsceneParallax>();
+        GameObject.FindGameObjectWithTag("parallax").AddComponent<PrologueParallax>();
 
         // scene 2... action
         yield return mainManager.OverlayFadeIn(1000);

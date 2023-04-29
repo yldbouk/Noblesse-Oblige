@@ -17,14 +17,22 @@ public class MainManager : MonoBehaviour
         else
         {
             Destroy(GameObject.Find("debugmenu"));
-            LoadLevel("MainMenu");
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
         }
     }
 
-    public void LoadLevel(string level)
+    public void DEBUGLoadLevel(string level)
     {
         GameObject.Find("debugmenu").gameObject.SetActive(false);
         SceneManager.LoadScene(level, LoadSceneMode.Additive);
+    }
+
+    public void LoadNewLevel(string newLevel, string oldLevel)
+    {
+        Debug.Log("Unloading " + oldLevel + ", Loading " + newLevel);
+        SceneManager.UnloadSceneAsync(oldLevel);
+        SceneManager.LoadScene(newLevel, LoadSceneMode.Additive);
+
     }
 
     public void OverlayOn() { blackOverlay.GetComponent<Image>().color = new Color(0, 0, 0, 1); }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0eda1905196af7e499f4e6416105a24f
+guid: dc510a92adde0f947871996a5a6cf5b0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,98 +105,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: _AttackNoMovement_0
+      name: _AttackNoMovement - Copy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 120
         height: 43
-      alignment: 9
-      pivot: {x: 0.46, y: 0.43}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -35, y: -4.5}
-        - {x: -27, y: -21.5}
-        - {x: -4, y: -21.5}
-        - {x: 8, y: -14.5}
-        - {x: 8, y: 11.5}
-        - {x: 7, y: 14.5}
-        - {x: 1, y: 17.5}
-        - {x: -35, y: 17.5}
+      - - {x: -33, y: 12.5}
+        - {x: -32, y: 12.5}
+        - {x: -32, y: 11.5}
+        - {x: -31, y: 11.5}
+        - {x: -31, y: 10.5}
+        - {x: -30, y: 10.5}
+        - {x: -30, y: 9.5}
+        - {x: -29, y: 9.5}
+        - {x: -29, y: 8.5}
+        - {x: -28, y: 8.5}
+        - {x: -28, y: 7.5}
+        - {x: -24, y: 7.5}
+        - {x: -24, y: 6.5}
+        - {x: -20, y: 6.5}
+        - {x: -20, y: 5.5}
+        - {x: -16, y: 5.5}
+        - {x: -16, y: 4.5}
+        - {x: -16, y: 4.5}
+        - {x: -12, y: 4.5}
+        - {x: -10, y: 4.5}
+        - {x: -10, y: 3.5}
+        - {x: -9, y: 3.5}
+        - {x: -9, y: 5.5}
+        - {x: -8, y: 5.5}
+        - {x: -8, y: 7.5}
+        - {x: -8, y: 9.5}
+        - {x: -11, y: 9.5}
+        - {x: -11, y: 10.5}
+        - {x: -15, y: 10.5}
+        - {x: -15, y: 11.5}
+        - {x: -19, y: 11.5}
+        - {x: -19, y: 12.5}
+        - {x: -24, y: 12.5}
+        - {x: -24, y: 13.5}
+        - {x: -28, y: 13.5}
+        - {x: -28, y: 14.5}
+        - {x: -33, y: 14.5}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba49dd0bbe81064eab13951bc72c403
-      internalID: -1027996083
+      spriteID: efb49f2d44e7f2a4ba76e2e6545a2b68
+      internalID: 238891928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackNoMovement_1
+      name: _AttackNoMovement - Copy_1
       rect:
         serializedVersion: 2
         x: 120
         y: 0
         width: 120
         height: 43
-      alignment: 9
-      pivot: {x: 0.46, y: 0.43}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 47, y: 6.5}
-        - {x: 36, y: 21.5}
+      - - {x: 45, y: -0.5}
+        - {x: 42, y: 10.5}
+        - {x: 30, y: 21.5}
         - {x: -17, y: 21.5}
         - {x: -23, y: 20.5}
         - {x: -23, y: 11.5}
         - {x: -20, y: 9.5}
         - {x: -9, y: 9.5}
-        - {x: -16, y: 8.5}
-        - {x: -23, y: -4.5}
-        - {x: -23, y: -21.5}
-        - {x: 47, y: -21.5}
-      - - {x: 10, y: 0.5}
+        - {x: -2, y: 13.5}
+        - {x: 0, y: 13.5}
+        - {x: 3, y: 13.5}
+        - {x: 3, y: 12.5}
+        - {x: 4, y: 12.5}
+        - {x: 4, y: 11.5}
+        - {x: 5, y: 11.5}
+        - {x: 5, y: 10.5}
+        - {x: 6, y: 10.5}
+        - {x: 6, y: 9.5}
+        - {x: 7, y: 9.5}
+        - {x: 7, y: 8.5}
+        - {x: 9, y: 8.5}
+        - {x: 9, y: 7.5}
         - {x: 10, y: 4.5}
-        - {x: 9, y: 5.5}
-        - {x: 9, y: 4.5}
-        - {x: 13, y: 1.5}
-        - {x: 14, y: -1.5}
-        - {x: 12, y: -2.5}
-      physicsShape:
-      - - {x: 37, y: -39}
-        - {x: 13, y: -31}
-        - {x: 17, y: -24}
-        - {x: 17, y: -17}
-        - {x: 6, y: -7}
-        - {x: -4, y: -4}
-        - {x: -8, y: -7}
-        - {x: -20, y: -7}
-        - {x: -20, y: -4}
-        - {x: 0, y: 3}
-        - {x: 25, y: 3}
-        - {x: 37, y: -5}
-        - {x: 45, y: -18}
-        - {x: 44, y: -30}
-        - {x: 43, y: -38}
+        - {x: 16, y: -2.5}
+        - {x: 16, y: -4.5}
+        - {x: 13, y: -4.5}
+        - {x: 13, y: -5.5}
+        - {x: 12, y: -5.5}
+        - {x: 12, y: -9.5}
+        - {x: 11, y: -9.5}
+        - {x: 11, y: -10.5}
+        - {x: 10, y: -10.5}
+        - {x: 10, y: -12.5}
+        - {x: 13, y: -21.5}
+        - {x: 38, y: -21.5}
+        - {x: 38, y: -20.5}
+        - {x: 41, y: -20.5}
+        - {x: 41, y: -19.5}
+        - {x: 42, y: -19.5}
+        - {x: 42, y: -17.5}
+        - {x: 43, y: -17.5}
+        - {x: 43, y: -15.5}
+        - {x: 44, y: -15.5}
+        - {x: 44, y: -12.5}
+        - {x: 45, y: -12.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14060c4e4f71d804fa9528ea680ee00f
-      internalID: 348878788
+      spriteID: caee1037b2d2a314a8302b6891b47010
+      internalID: -605388108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackNoMovement_2
+      name: _AttackNoMovement - Copy_2
       rect:
         serializedVersion: 2
         x: 240
         y: 0
         width: 120
         height: 43
-      alignment: 9
-      pivot: {x: 0.46, y: 0.43}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 48, y: -15.5}
@@ -205,63 +246,61 @@ TextureImporter:
         - {x: 39, y: 16.5}
         - {x: 33, y: 16.5}
         - {x: 32, y: 14.5}
-        - {x: 16, y: 16.5}
-        - {x: -3, y: 16.5}
-        - {x: -16, y: 8.5}
-        - {x: -21, y: -2.5}
-        - {x: -21, y: -21.5}
+        - {x: 31, y: 0.5}
+        - {x: 21, y: -0.5}
+        - {x: 12, y: -0.5}
+        - {x: 13, y: -4.5}
+        - {x: 14, y: -7.5}
+        - {x: 13, y: -7.5}
+        - {x: 13, y: -8.5}
+        - {x: 13, y: -10.5}
+        - {x: 12, y: -10.5}
+        - {x: 12, y: -11.5}
+        - {x: 11, y: -11.5}
+        - {x: 9, y: -11.5}
+        - {x: 9, y: -17.5}
+        - {x: 10.041199, y: -21.5}
         - {x: 45, y: -21.5}
-      physicsShape:
-      - - {x: 12, y: -32}
-        - {x: 17, y: -28}
-        - {x: 19, y: -30}
-        - {x: 25, y: -30}
-        - {x: 30, y: -28}
-        - {x: 35, y: -22}
-        - {x: 36, y: -5}
-        - {x: 42, y: -9}
-        - {x: 46, y: -20}
-        - {x: 46, y: -34}
-        - {x: 40, y: -40}
-        - {x: 29, y: -40}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60875637e05feba4bb9f4a9bf1ad1854
-      internalID: -1840377568
+      spriteID: eeb4f5fba05d514428a0599bccff7f14
+      internalID: -369078054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: _AttackNoMovement_3
+      name: _AttackNoMovement - Copy_3
       rect:
         serializedVersion: 2
         x: 360
         y: 0
         width: 120
         height: 43
-      alignment: 9
-      pivot: {x: 0.46, y: 0.43}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 6, y: 15.5}
-        - {x: -5, y: 15.5}
-        - {x: -20, y: 3.5}
-        - {x: -21, y: -2.5}
-        - {x: -21, y: -21.5}
+      - - {x: 35, y: -4.5}
+        - {x: 24, y: -4.5}
+        - {x: 14, y: -6.5}
+        - {x: 14, y: -8.5}
+        - {x: 13, y: -8.5}
+        - {x: 13, y: -10.5}
+        - {x: 12, y: -10.5}
+        - {x: 12, y: -11.5}
+        - {x: 9, y: -11.5}
+        - {x: 9, y: -21.5}
+        - {x: 9, y: -21.5}
         - {x: 42, y: -21.5}
         - {x: 42, y: -15.5}
-        - {x: 13, y: 11.5}
-      physicsShape:
-      - - {x: 13, y: -33}
-        - {x: 18, y: -28}
-        - {x: 42, y: -39}
-        - {x: 41, y: -40}
-        - {x: 29, y: -40}
+        - {x: 42, y: -8.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fa82dbe71e9cb44ca400edb4370e342
-      internalID: -205485240
+      spriteID: 3a8e0a9f430acb548bd202124f095a40
+      internalID: 914344407
       vertices: []
       indices: 
       edges: []
@@ -277,10 +316,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      _AttackNoMovement_0: -1027996083
-      _AttackNoMovement_1: 348878788
-      _AttackNoMovement_2: -1840377568
-      _AttackNoMovement_3: -205485240
+      _AttackNoMovement - Copy_0: 238891928
+      _AttackNoMovement - Copy_1: -605388108
+      _AttackNoMovement - Copy_2: -369078054
+      _AttackNoMovement - Copy_3: 914344407
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
