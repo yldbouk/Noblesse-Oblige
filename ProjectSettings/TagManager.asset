@@ -18,7 +18,7 @@ TagManager:
   - ForegroundLayer
   - MiddlegroundLayer
   - BackgroundLayer
-  - 
+  - EnemyLayer
   - 
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
     locked: 0
   - name: GroundSorting
     uniqueID: 3699798981
+    locked: 0
+  - name: EnemySorting
+    uniqueID: 3125661145
     locked: 0
   - name: CharacterSorting
     uniqueID: 3585779043
