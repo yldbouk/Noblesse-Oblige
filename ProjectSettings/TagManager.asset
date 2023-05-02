@@ -6,6 +6,7 @@ TagManager:
   tags:
   - parallax
   - Ground
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -13,12 +14,12 @@ TagManager:
   - 
   - Water
   - UI
-  - ChatachterLayer
-  - GroundLayer
-  - ForegroundLayer
-  - MiddlegroundLayer
-  - BackgroundLayer
-  - EnemyLayer
+  - Character
+  - Ground
+  - Foreground
+  - Middleground
+  - Background
+  - Enemy
   - 
   - 
   - 
