@@ -13,14 +13,19 @@ public class Dodge : MonoBehaviour
     private Rigidbody2D body;
     private SpriteRenderer sprite;
     public Animator animator;
-    private bool desiredRoll;
+    private bool desiredDash;
 
 
     private bool canDash = true;
+    private float dashTimeLeft;
+    private float lastImageXpos;
+    private float lastDash = -100f;
+
     public bool isDashing;
     public float dashingPower = 24f;
     public float dashingTime = 0.2f;
     public float dashingCooldown = 1f;
+    public float distanceBetweenImages;
 
     // Start is called before the first frame update
     void Start()
@@ -36,21 +41,24 @@ public class Dodge : MonoBehaviour
     {
         if (isDashing) return;
 
-        desiredRoll |= input.RetrieveDodgeInput();
+        desiredDash |= input.RetrieveDodgeInput();
         
     }
 
     private void FixedUpdate()
     {
         if (isDashing) return;
-        if(desiredRoll && canDash)
+        if(desiredDash && canDash)
         {
-            StartCoroutine(roll());
-            desiredRoll = false;
+            PlayerAfterImagePool.Instance.GetFromPool();
+            lastImageXpos = transform.position.x;
+            Debug.Log(lastImageXpos);
+            StartCoroutine(Dash());
+            desiredDash = false;
         }
     }
 
-    private IEnumerator roll()
+    private IEnumerator Dash()
     {
         //initializing different variables needed for a good dash
         canDash = false;
@@ -68,16 +76,21 @@ public class Dodge : MonoBehaviour
         
         //this vector2 is what actually moves the body forward
         body.velocity = new Vector2 ((transform.localScale.x * direction) * dashingPower, 0f);
-        Debug.Log(transform.localScale.x * direction);
+        //Debug.Log(transform.localScale.x * direction);
+
 
         //this is for the afterimage for the knight
-        tr.emitting = true;
+        if(Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+        {
+            PlayerAfterImagePool.Instance.GetFromPool();
+            lastImageXpos = transform.position.x;
+        }
 
         //stops player from dashing multible times in a row
         yield return new WaitForSeconds(dashingTime);
 
         //this is also for the afterimage
-        tr.emitting = false;
+        
 
         //sets the gravity back to normal
         body.gravityScale = originalGravity;
