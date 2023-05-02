@@ -13,7 +13,10 @@ public class MainManager : MonoBehaviour
     {
         Debug.Log("Main Manager Loaded");
 
-        if (debugMode)  GameObject.Find("debugmenu").GetComponent<Canvas>().enabled = true;
+        //QualitySettings.vSyncCount = 0;
+        //Application.targetFrameRate = 30;
+
+        if (debugMode) GameObject.Find("debugmenu").GetComponent<Canvas>().enabled = true;
         else
         {
             Destroy(GameObject.Find("debugmenu"));
@@ -35,6 +38,14 @@ public class MainManager : MonoBehaviour
 
     }
 
+    public float overlay
+    {
+        set
+        {
+            if (value > 1 || value < 0) throw new System.Exception("Must be between 0 and 1!");
+            else blackOverlay.GetComponent<Image>().color = new Color(0, 0, 0, value);
+        }
+    }
     public void OverlayOn() { blackOverlay.GetComponent<Image>().color = new Color(0, 0, 0, 1); }
     public void OverlayOff() { blackOverlay.GetComponent<Image>().color = new Color(0, 0, 0, 0); }
     public  IEnumerator OverlayFadeIn (int ms = 500) { yield return OverlayFade(false,ms); }
