@@ -6,17 +6,25 @@ public class MeleePlayer : MonoBehaviour
 {
 
     public Animator animator;
-
     public Transform attackPoint;
-    public float attackRange = 0.5f;
     public LayerMask enemyLayer;
+
+    public float attackRange = 0.5f;
+    public int attackDamage = 40;
+
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 
@@ -31,7 +39,7 @@ public class MeleePlayer : MonoBehaviour
         // Damage them
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
         }
     }
 

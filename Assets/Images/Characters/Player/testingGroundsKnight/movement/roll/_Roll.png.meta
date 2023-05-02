@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6bbefe7475c884e43961d120093d91b0
+guid: e1fc9b1849de80d49a0ea8e207b93b8b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gui_1
+      name: _Roll_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 49
-        width: 7
-        height: 7
+        x: 50
+        y: 2
+        width: 24
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d461950362decdc40b119297f9ee91bf
-      internalID: 1312987272
+      spriteID: 0584e7f966649254e97407d77a1b8450
+      internalID: -1951471001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_2
+      name: _Roll_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 49
-        width: 7
-        height: 7
+        x: 164
+        y: 5
+        width: 36
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cfb3124c8aec23479ad6da7b23ad7c3
-      internalID: -675293145
+      spriteID: a3d4371b5de18094bb09b62620de5cee
+      internalID: 948630586
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_3
+      name: _Roll_2
       rect:
         serializedVersion: 2
-        x: 25
-        y: 49
-        width: 7
-        height: 7
+        x: 284
+        y: 8
+        width: 40
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5b9b971a000ae548afbbccc5961272f
-      internalID: 1719268421
+      spriteID: 55dc58a95ea2f7147b3a023c22275a8a
+      internalID: -365878152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_4
+      name: _Roll_3
       rect:
         serializedVersion: 2
-        x: 33
-        y: 49
-        width: 7
-        height: 7
+        x: 403
+        y: 12
+        width: 42
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bacf6914d1bb234081bb935014ea3c2
-      internalID: 61609899
+      spriteID: b2dd1671a2bfec64da47244996e4881f
+      internalID: -563290931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_5
+      name: _Roll_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 35
-        width: 32
-        height: 5
+        x: 523
+        y: 12
+        width: 41
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 675fb607f11d5f84db8050ae8e33f3da
-      internalID: 826381816
+      spriteID: 2a90c1069c600544da4f27cac2840fb4
+      internalID: -269842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_6
+      name: _Roll_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 27
-        width: 32
-        height: 5
+        x: 642
+        y: 7
+        width: 43
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccade2a1fb3fc04468408b25b4437974
-      internalID: -27093690
+      spriteID: d4d74a3a8a4402b43ab5126ba4a8ec6a
+      internalID: -1408210882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_7
+      name: _Roll_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 4
-        width: 18
-        height: 12
+        x: 767
+        y: 0
+        width: 28
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b6fe4a7f27371f4b982b1b09ae58c49
-      internalID: 15946523
+      spriteID: 12333f9349f95db459a22450fa5cfb23
+      internalID: -1200242732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gui_8
+      name: _Roll_7
       rect:
         serializedVersion: 2
-        x: 49
-        y: 28
-        width: 30
-        height: 3
+        x: 893
+        y: 0
+        width: 23
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +266,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a26d39362db3cab468b6029d104d0d9c
-      internalID: -489441985
+      spriteID: ad82e5dc2e51f23478e9ad538673ccd3
+      internalID: 902822046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Roll_8
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 0
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b79c7450ed3ac14ca060a38d36961a7
+      internalID: 308512885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Roll_9
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 0
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef125c48a59d056498c4881933d1539b
+      internalID: 1060646253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Roll_10
+      rect:
+        serializedVersion: 2
+        x: 1249
+        y: 0
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cea0abfcaf376e143a83389345023845
+      internalID: 375710968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Roll_11
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 0
+        width: 26
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3183d539268dbb46b35215db020146e
+      internalID: 566994847
       vertices: []
       indices: 
       edges: []
@@ -283,15 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Gui_0: 89204275
-      Gui_1: 1312987272
-      Gui_2: -675293145
-      Gui_3: 1719268421
-      Gui_4: 61609899
-      Gui_5: 826381816
-      Gui_6: -27093690
-      Gui_7: 15946523
-      Gui_8: -489441985
+      _Roll_0: -1951471001
+      _Roll_1: 948630586
+      _Roll_10: 375710968
+      _Roll_11: 566994847
+      _Roll_2: -365878152
+      _Roll_3: -563290931
+      _Roll_4: -269842
+      _Roll_5: -1408210882
+      _Roll_6: -1200242732
+      _Roll_7: 902822046
+      _Roll_8: 308512885
+      _Roll_9: 1060646253
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
