@@ -19,6 +19,6 @@ public class PlayerController : InputController
 
     public override bool RetrieveDodgeInput()
     {
-        return Input.GetKeyDown(KeyCode.LeftShift);
+        return Input.GetButtonDown("Roll");
     }
 }
