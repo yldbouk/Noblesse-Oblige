@@ -2808,7 +2808,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 624751993}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69a07568c11ac064e8f2431299709dfd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -3819,6 +3819,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5225524043208606405, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 364975188, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3897100181103919668, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
       propertyPath: m_Name
       value: testingGroundsKnight
