@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Level1Boss : MonoBehaviour
 {
-    Vector2 waypoint = new Vector2(-3.5f, -1.45f);
     Animator animator;
 
     void Start()
@@ -12,20 +11,22 @@ public class Level1Boss : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void AttackHelper() { readyToAttack  = true; }
-    public void Attack() { animator.SetTrigger("attack"); }
+    void AttackHelper() { readyToAttack = true; }
+    //public void Attack() { animator.SetBool("attack", true); animator.SetBool("attack", false); }
     public int animationState { set { animator.SetInteger("state", value); } }
 
     public bool readyToAttack = false;
 
-    public IEnumerator GoToWaypoint()
+    public IEnumerator GoTo(Vector2 w)
     {
         animator.SetInteger("state", 1);
+        int direction = transform.position.x < w.x  ? 1 : -1;
+  
         do
         {
-            transform.position = new Vector2(transform.position.x - .005f, transform.position.y);
-            yield return null;
-        } while (Vector3.Distance(transform.position, waypoint) > .1f);
+            transform.position = new Vector2(transform.position.x + direction*.02f, transform.position.y);
+            yield return new WaitForSecondsRealtime(.01f);
+        } while (Vector2.Distance(transform.position, w) > 1.9f);
         animator.SetInteger("state", 0);
     }
 
