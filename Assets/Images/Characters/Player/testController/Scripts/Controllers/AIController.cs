@@ -8,7 +8,7 @@ public class AIController : InputController
 {
     public override bool RetrieveDodgeInput()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public override bool RetrieveJumpInput()
