@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level1Player : MonoBehaviour
 {
-    Vector2 waypoint = new Vector2(-5,-2);
+    Vector2 waypoint = new Vector2(-5,-1.932f);
     Animator animator;
 
     void Start()

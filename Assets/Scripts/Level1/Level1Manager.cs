@@ -142,8 +142,10 @@ public class Level1Manager : MonoBehaviour
 
         audioTooltip.Play();
         globalTooltipText.text = "You Killed Your Brother";
-
         yield return new WaitForSeconds(5);
+        audioTooltip.Play();
+        globalTooltipText.text = "Congratulations";
+        yield return new WaitForSeconds(4);
 
         globalToolTipBG.SetActive(false);
         mainManager.inCutscene = false;
