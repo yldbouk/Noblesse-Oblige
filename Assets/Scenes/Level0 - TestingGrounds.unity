@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &364975154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3897100181103919668, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
+  m_PrefabInstance: {fileID: 5963500533708486458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364975155 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 364975155, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
+  m_PrefabInstance: {fileID: 5963500533708486458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &364975189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364975154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e220df0c4f4374646ac5fe52f7a9dee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 0}
+  rollDistance: 4
+  maxRoll: 0
+  rollMovementMultiplier: 3
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 128
+  m_GroundCheck: {fileID: 2104900671}
+  animator: {fileID: 364975155}
 --- !u!1 &522509804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,6 +3843,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &2104900671 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2104900671, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
+  m_PrefabInstance: {fileID: 5963500533708486458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5963500533708486458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3819,14 +3855,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -5225524043208606405, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
-      propertyPath: m_Size.y
-      value: 1.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 364975188, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3897100181103919668, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
       propertyPath: m_Name
       value: testingGroundsKnight
