@@ -50,12 +50,12 @@ public class Jump : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
                 onGound = true;
 
-        if (velocity.y > 0.1 && !onGound)
+        if (velocity.y > 0.5 && !onGound)
         {
             state = animationState.jumping;
             animator.SetInteger("state", (int)state);
         }
-        else if (velocity.y < -0.1 || !onGound)
+        else if (velocity.y < -0.5 || !onGound)
         {
             state = animationState.falling;
             animator.SetInteger("state", (int)state);

@@ -37,14 +37,14 @@ public class Ground : MonoBehaviour
 
     private void RetrieveFriction(Collision2D collision)
     {
-        PhysicsMaterial2D material = collision.rigidbody.sharedMaterial;
+        //PhysicsMaterial2D material = collision.rigidbody.sharedMaterial;
 
         friction = 0;
 
-        if(material != null)
-        {
-            friction = material.friction;
-        }
+        //if(material != null)
+        //{
+        //    friction = material.friction;
+        //}
     }
 
 
