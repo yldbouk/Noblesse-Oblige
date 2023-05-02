@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -19,6 +20,7 @@ public class Move : MonoBehaviour
     private enum animationState { idle, running, jumping, falling }
     animationState state;
     private Ground ground;
+    MainManager mainManager;
 
     private float maxSpeedChange;
     private float acceleration;
@@ -27,15 +29,21 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
+
+    public void HelperCutsceneRoll() { if (mainManager.inCutscene) sprite.flipX = true; }
+
     // Update is called once per frame
     void Update()
     {
+        if (mainManager.inCutscene) return;
+
         direction.x = input.RetrieveMoveInput();
 
         if(direction.x < 0f)
@@ -60,6 +68,8 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (mainManager.inCutscene) return;
+
         onGround = ground.GetOnGround();
         velocity = body.velocity;
 

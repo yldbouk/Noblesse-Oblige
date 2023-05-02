@@ -22,6 +22,7 @@ public class Jump : MonoBehaviour
     animationState state;
     private Ground ground;
     private Vector2 velocity;
+    MainManager mainManager;
 
     private int jumpPhase;
     private float defaultGravityScale;
@@ -33,6 +34,7 @@ public class Jump : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
@@ -43,6 +45,8 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mainManager.inCutscene) return;
+
         onGound = false;
         desiredJump |= input.RetrieveJumpInput();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -66,6 +70,7 @@ public class Jump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (mainManager.inCutscene) return;
 
         velocity = body.velocity;
 
