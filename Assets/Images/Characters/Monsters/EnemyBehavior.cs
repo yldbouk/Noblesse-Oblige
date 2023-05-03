@@ -3,48 +3,50 @@ using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    public Rigidbody2D body;
-    public Animator animator;
-    public SpriteRenderer sprite;
+    Animator animator;
+    SpriteRenderer sprite;
+    GameObject target;
 
-    private Transform currentPoint;
     public float speed;
+    public float distanceThreshold;
+    public float attackCooldown;
 
-    public bool readyToAttack = false;
+    bool readyToAttack = true;
 
 
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        
-        if (!readyToAttack)
+        if (animator.GetBool("IsDead")) Destroy(this);
+        if (!readyToAttack) return;
+
+        if (Vector2.Distance(transform.position, target.transform.position) > distanceThreshold)
         {
             animator.SetBool("isRunning", true);
-            int direction = transform.position.x < body.transform.position.x ? 1 : -1;
-            sprite.flipX = transform.position.x > body.transform.position.x;
-            transform.position = new Vector2(transform.position.x + direction * 0.1f, transform.position.y);
-            readyToAttack = false;
-            StartCoroutine(Attack());
+            int direction = (transform.position.x < target.transform.position.x ? 1 : -1);
+            sprite.flipX = transform.position.x > target.transform.position.x;
+            transform.position = new Vector2(transform.position.x + direction * speed /100, transform.position.y);
+            return;
         }
-
         readyToAttack = false;
+        StartCoroutine(Attack());
+
     }
 
     private IEnumerator Attack() 
-    {
-        
-        //while (Vector2.Distance(transform.position, body.transform.position) > 1.9f)
-        
+    {  
         animator.SetBool("isRunning", false);
         animator.SetBool("isNearPlayer", true);
-        yield return new WaitForSeconds(5);
-        readyToAttack = false;
+        yield return new WaitForSeconds(.25f);
+        animator.SetBool("isNearPlayer", false);
+        yield return new WaitForSeconds(attackCooldown);
+        readyToAttack = true;
     }
 
     
