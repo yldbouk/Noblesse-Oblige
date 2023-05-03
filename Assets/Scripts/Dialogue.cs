@@ -21,10 +21,23 @@ public static class Dialogue
         "Brother?",
         "Kill",
         "Tell Brother, what meaneth this? Hast thou lost thy wits?",
-        "...",
-        "He's coming again, I'll tap him as a warning..."
+        "..."
+    };
 
-
+    public static readonly string[] bossFinal =
+    {
+        "Father, what meaneth... Nay, Thou art not my father.",
+        "Aye, I am an extraterrestrial, hither to annihilate thy realm.",
+        "An extraterrestrial? Verily, I am at a loss for words. Why art thou inhabiting my father's vessel?",
+        "Thy father failed to safeguard thy people. As retribution, I hath taken possession of his corporeal form. His consciousness persists, but his physical being is now under my absolute dominion.",
+        "Nay... What possessions and power wouldst thou seek to obliterate our fair land and its people? What purpose wouldst thou have in such destruction?",
+        "Purpose, thou sayeth? What need have I of material possessions or power? I am but a being of pure energy, with an insatiable craving for destruction and chaos.",
+        "Thy world shall provide me with abundant nourishment, and thy people shall serve as sustenance for my machinations.",
+        "Nay, I shall not permit it! I will not stand passively and watch as thou destroyeth all that my father and his forefathers have wrought.",
+        "I shall fight thee with every fiber of my being, and shall not rest until thou art vanquished.",
+        "Thou would slay thy father?",
+        "'Tis Nobelesse Oblige... The noble's obligation to safeguard his people.",
+        "Very well. Behold!"
     };
 
 

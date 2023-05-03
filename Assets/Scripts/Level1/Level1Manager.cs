@@ -150,9 +150,6 @@ public class Level1Manager : MonoBehaviour
         globalToolTipBG.SetActive(false);
         mainManager.inCutscene = false;
 
-
-
-
     }
 
 
@@ -169,7 +166,7 @@ public class Level1Manager : MonoBehaviour
             float s = speed;
             switch (chars[i])
             {
-                //case ' ': s += .05f; break;
+                case ' ': s += .02f; break;
                 case '"': continue;
                 case ',': s *= 2; break;
                 case '.':
