@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8685848959460212875}
   - component: {fileID: 4061579003208594191}
   - component: {fileID: 213113051}
+  - component: {fileID: 7233378526825021689}
   m_Layer: 0
   m_Name: flying_sword
   m_TagString: Untagged
@@ -97,3 +98,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3a7a1fbfd84e64a8715443abdace31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &7233378526825021689
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8612249555358721743}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.9375, y: 0.9375}
+    newSize: {x: 0.9375, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.34179652, y: 0.46875}
+      - {x: -0.46875, y: 0.46875}
+      - {x: -0.4687501, y: 0.35219476}
+      - {x: 0.0087261945, y: -0.10957568}
+      - {x: 0.09692212, y: -0.19421296}
+      - {x: 0.10564019, y: -0.34640273}
+      - {x: 0.15497199, y: -0.34448668}
+      - {x: 0.21118489, y: -0.29945725}
+      - {x: 0.38102722, y: -0.46995774}
+      - {x: 0.46730384, y: -0.47308823}
+      - {x: 0.47541302, y: -0.3738848}
+      - {x: 0.30002323, y: -0.20587692}
+      - {x: 0.34006968, y: -0.16117884}
+      - {x: 0.3344631, y: -0.08985382}
+      - {x: 0.19622469, y: -0.096132256}
