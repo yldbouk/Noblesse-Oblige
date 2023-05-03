@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 974690029}
   - component: {fileID: 974690031}
   - component: {fileID: 974690030}
+  - component: {fileID: 974690032}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -8242,7 +8243,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -13.012061, y: -3.1091955}
-  - {x: 8.2450695, y: -3.0869164}
+  - {x: -18.965675, y: -3.3627}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -8263,7 +8264,7 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -13.012969, y: 0.9530716}
+  - {x: 3.8711786, y: -3.3675551}
   - {x: -12.962112, y: -2.9433446}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -8285,8 +8286,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 8.170422, y: 4.1969743}
-  - {x: 8.192338, y: -3.0862868}
+  - {x: 13.889424, y: 0.32769442}
+  - {x: 7.991725, y: 0.4404204}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -8332,6 +8333,32 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!61 &974690032
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974690024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 34.555313, y: 4.7311177}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.7010002, y: 3.356555}
+  m_EdgeRadius: 0
 --- !u!1 &1031273348
 GameObject:
   m_ObjectHideFlags: 0
