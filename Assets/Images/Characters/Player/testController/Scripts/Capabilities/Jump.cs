@@ -26,8 +26,9 @@ public class Jump : MonoBehaviour
     private int jumpPhase;
     private float defaultGravityScale;
 
+    
     private bool desiredJump;
-    private bool onGound;
+    public bool onGound;
     const float k_GroundedRadius = .2f;                         // Radius of the overlap circle to determine if grounded
 
     // Start is called before the first frame update
@@ -43,6 +44,8 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         onGound = false;
         desiredJump |= input.RetrieveJumpInput();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -67,6 +70,7 @@ public class Jump : MonoBehaviour
     private void FixedUpdate()
     {
 
+        
         velocity = body.velocity;
 
         if (onGound)
@@ -74,16 +78,19 @@ public class Jump : MonoBehaviour
 
         if (desiredJump)
         {
+            Debug.Log(body.velocity.y);
+            Debug.Log(onGound);
             desiredJump = false;
+            
             JumpAction();
         }
 
-        if (body.velocity.y > 0)
+        if (body.velocity.y > 0.01)
         {
             body.gravityScale = upwardMovementMultiplier;
             
         }
-        else if (body.velocity.y < 0)
+        else if (body.velocity.y < -0.01)
         {
             body.gravityScale = downwardMovementMultiplier;
             

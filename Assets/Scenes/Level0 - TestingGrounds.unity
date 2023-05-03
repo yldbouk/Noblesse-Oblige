@@ -3051,6 +3051,11 @@ Transform:
   m_Father: {fileID: 712757568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &886987513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9034339190317317145, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+  m_PrefabInstance: {fileID: 1853143786465806615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888478519
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,6 +3258,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1032403467 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5437300877969232107, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+  m_PrefabInstance: {fileID: 1853143786465806615}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114279151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6362098263748067760, guid: bc2f97faa1796a9448bdd215ffbce851, type: 3}
@@ -3314,6 +3324,37 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 418074658456109520, guid: bc2f97faa1796a9448bdd215ffbce851, type: 3}
   m_PrefabInstance: {fileID: 6362098264853957983}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1240874466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1240874467}
+  m_Layer: 6
+  m_Name: attackPoint2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1240874467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240874466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.979, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5963500533486117655}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1376422441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3865,24 +3906,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1853143786159693122, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
-      propertyPath: tr
-      value: 
+      propertyPath: isDashing
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1853143786159693122, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 5963500533486117641}
     - target: {fileID: 1853143786159693122, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
       propertyPath: dashingPower
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1853143786159693122, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
-      propertyPath: dashingCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1853143786159693122, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
       propertyPath: distanceBetweenImages
-      value: 5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1853143786159693172, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
       propertyPath: m_Enabled
@@ -3932,17 +3965,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5437300877969232104, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+      propertyPath: m_Name
+      value: attackPoint1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437300878137535102, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+      propertyPath: maxAcceleration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437300878819820050, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829893779571736208, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 69a07568c11ac064e8f2431299709dfd, type: 2}
     - target: {fileID: 9034339190317317145, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
       propertyPath: m_Name
       value: testingGroundsKnight
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1853143786159693172, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+    - {fileID: 5437300878137535086, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+    - {fileID: 5437300878137535079, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+    - {fileID: 5437300878137535078, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
 --- !u!95 &5963500533486117641 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5437300878137535006, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
   m_PrefabInstance: {fileID: 1853143786465806615}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &5963500533486117655 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2957467102509908199, guid: 79f24c2e4b9ca89459fa6ab217bd551d, type: 3}
+  m_PrefabInstance: {fileID: 1853143786465806615}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5963500533486117656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 886987513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e45bb1013fe5846af061e29715ea72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: 6fc79594ceb237c4f801d4828feb6b91, type: 2}
+  animator: {fileID: 5963500533486117641}
+  attackPoint1: {fileID: 1032403467}
+  attackPoint2: {fileID: 1240874467}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 2048
+  attackDamage: 40
+  attackRange: 0.89
+  attackRate: 2
+  nextAttackTime: 0
 --- !u!1001 &6362098264853957983
 PrefabInstance:
   m_ObjectHideFlags: 0

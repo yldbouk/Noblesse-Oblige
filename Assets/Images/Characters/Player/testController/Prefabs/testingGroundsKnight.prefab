@@ -198,8 +198,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.56120425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.84, y: 1.52}
+    pivot: {x: 0.47, y: 0.5}
+    oldSize: {x: 4.8, y: 1.52}
     newSize: {x: 0.84, y: 1.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -237,7 +237,7 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.74}
+  m_Offset: {x: 0, y: -0.77}
   m_EdgeRadius: 0.03
   m_Points:
   - {x: -0.42, y: 0}
@@ -501,9 +501,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 6fc79594ceb237c4f801d4828feb6b91, type: 2}
   m_GroundCheck: {fileID: 5437300878819820050}
-  tr: {fileID: 1853143786159693172}
+  tr: {fileID: 0}
   animator: {fileID: 5437300878137535006}
   isDashing: 0
-  dashingPower: 24
+  dashingPower: 18
   dashingTime: 0.2
-  dashingCooldown: 1
+  dashingCooldown: 0.5
+  distanceBetweenImages: 5
