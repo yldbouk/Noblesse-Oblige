@@ -7,14 +7,15 @@ public class MainManager : MonoBehaviour
 {
     public Canvas blackOverlay;
     public bool debugMode;
-
+    public bool inCutscene = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("Main Manager Loaded");
 
-        //QualitySettings.vSyncCount = 0;
-        //Application.targetFrameRate = 30;
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
 
         if (debugMode) GameObject.Find("debugmenu").GetComponent<Canvas>().enabled = true;
         else
@@ -54,9 +55,10 @@ public class MainManager : MonoBehaviour
     {
         Debug.Log("Fading " + (toBlack ? "out" : "in") + " in " + ms + "ms");
         Image overlay = blackOverlay.GetComponent<Image>();
-        for(int i = toBlack ? 0 : 255; toBlack ? (i<=255) : (i>=0);i += toBlack ? 1 : -1) {
+        for(int i = toBlack ? 0 : 255; toBlack ? (i<=255) : (i>=0);i += toBlack ? 2 : -2) {
             overlay.color = new Color(0, 0, 0, i/255f);
-            yield return new WaitForSeconds((ms/255f)/1000);
+            yield return new WaitForSeconds((ms/127.5f)/1000);
         }
     }
+
 }

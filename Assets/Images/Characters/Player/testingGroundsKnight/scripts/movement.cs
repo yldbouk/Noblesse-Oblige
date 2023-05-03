@@ -8,6 +8,7 @@ using UnityEngine.Events;
 
 public class movement : MonoBehaviour
 {
+    MainManager mainManager;
 
     [Header("Movement Settings")]
     [Space]
@@ -55,8 +56,11 @@ public class movement : MonoBehaviour
 
 
 
+
     private void Start()
     {
+        mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
+
         //calls the rigidbody component for movement
         m_Rigidbody = GetComponent<Rigidbody2D>();
 
@@ -68,10 +72,10 @@ public class movement : MonoBehaviour
     }
 
 
-
     // Update is called once per frame
     void Update()
-    {
+    { if (mainManager.inCutscene) return;
+
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
 
@@ -166,8 +170,9 @@ public class movement : MonoBehaviour
 
     void dash()
     {
-        m_Rigidbody.velocity = new Vector2(m_RollSpeed * inputX, 0.0f);
-        transform.Translate(((m_Rigidbody.velocity + m_Rigidbody.velocity) * 5.0f * Time.deltaTime));
-        Debug.Log(m_Rigidbody.velocity * 5.0f);
+
+        m_Rigidbody.velocity = new Vector2(inputX == 0 ? m_RollSpeed : (m_RollSpeed * inputX), 0.0f);
+        //transform.Translate(((m_Rigidbody.velocity + m_Rigidbody.velocity) * 3.0f * Time.deltaTime));
+        //Debug.Log(m_Rigidbody.velocity * 5.0f);
     }
 }
