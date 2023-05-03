@@ -39,6 +39,7 @@ public class enemy : MonoBehaviour
     {
         Debug.Log("Enemy died");
 
+     if(gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
         //Die animation
         animator.SetBool("IsDead", true);
 

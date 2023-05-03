@@ -10,6 +10,7 @@ public class LevelFinalBoss : MonoBehaviour
     SpriteRenderer sprite;
     Animator animator;
     Rigidbody2D rb;
+    public AudioSource hurt;
 
     public Transform attack1point1;
     public Transform attack1point2;
@@ -44,6 +45,7 @@ public class LevelFinalBoss : MonoBehaviour
 
     void HELPERBeginAttack() { _attacking = true; }
     void HELPEREndAttack()   { _attacking = false; }
+    void HELPERHit() { hurt.Play(); }
 
 
     void Awake()
@@ -70,15 +72,15 @@ public class LevelFinalBoss : MonoBehaviour
         }
     }
 
-    private void collideCheck()
-    {
-        Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
-        Collider2D[] hit1Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
-        foreach (Collider2D enemy in hit1Enemies1)
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-        foreach (Collider2D enemy in hit1Enemies2)
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-    }
+    //private void collideCheck()
+    //{
+    //    Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
+    //    Collider2D[] hit1Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
+    //    foreach (Collider2D enemy in hit1Enemies1)
+    //        enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+    //    foreach (Collider2D enemy in hit1Enemies2)
+    //        enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+    //}
 
     public void TakeDamage(int damage)
     {
@@ -113,7 +115,7 @@ public class LevelFinalBoss : MonoBehaviour
     {
         animator.SetInteger("state", 1);
 
-        collideCheck();
+        //collideCheck();
 
         Collider2D[] hit2Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
         Collider2D[] hit2Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
@@ -132,7 +134,7 @@ public class LevelFinalBoss : MonoBehaviour
         }
         animator.SetInteger("state", 0);
         animator.SetTrigger("attack");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         readyToAttack = true; 
 
     }
@@ -141,7 +143,7 @@ public class LevelFinalBoss : MonoBehaviour
     private IEnumerator AttackJumpRush()
     {
         animator.SetTrigger("jump");
-        collideCheck();
+        //collideCheck();
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
@@ -155,14 +157,14 @@ public class LevelFinalBoss : MonoBehaviour
         animator.SetBool("falling", false);
         animator.SetTrigger("attack2");
         rb.gravityScale = 1;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         readyToAttack = true;
     }
 
     private IEnumerator AttackJumpThrow()
     {
         animator.SetTrigger("jump");
-        collideCheck();
+       // collideCheck();
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
@@ -193,7 +195,7 @@ public class LevelFinalBoss : MonoBehaviour
         while (rb.velocity.y < 0) yield return null;
         animator.SetBool("falling", false);
         animator.SetTrigger("attack2");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         readyToAttack = true;
     }
 

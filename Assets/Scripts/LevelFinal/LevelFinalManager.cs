@@ -74,7 +74,7 @@ public class LevelFinalManager : MonoBehaviour
     {
         Debug.Log("Starting Cutscene");
         mainManager.inCutscene = true;
-        yield return new WaitForSeconds(3); 
+        yield return new WaitForSeconds(2); 
         //Physics2D.IgnoreLayerCollision(6, 11, true);
         yield return mainManager.OverlayFadeIn(2000);
         yield return player.GoToWaypoint();
@@ -142,5 +142,14 @@ public class LevelFinalManager : MonoBehaviour
 
             yield return new WaitForSeconds(s);
         }
+    }
+
+    public void BossDefeated()
+    {
+        GameObject g = boss.gameObject;
+        Destroy(boss);
+
+        g.GetComponent<Animator>().SetBool("Dead", true);
+        
     }
 }
