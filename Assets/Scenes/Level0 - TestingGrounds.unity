@@ -4067,6 +4067,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 2504580568297144164, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504580568297144164, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2504580568297144165, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4116,6 +4124,14 @@ PrefabInstance:
       value: 1.4688878
       objectReference: {fileID: 0}
     - target: {fileID: 2504580568297144167, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504580568297144167, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 69a07568c11ac064e8f2431299709dfd, type: 2}
+    - target: {fileID: 2504580568297144167, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
       propertyPath: m_Simulated
       value: 1
       objectReference: {fileID: 0}
@@ -4135,6 +4151,10 @@ PrefabInstance:
       propertyPath: body
       value: 
       objectReference: {fileID: 1986851130}
+    - target: {fileID: 2504580568297144186, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2504580568297144186, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
       propertyPath: PointA
       value: 

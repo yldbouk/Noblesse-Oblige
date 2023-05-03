@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Dodge : MonoBehaviour
 {
+
     [SerializeField] private InputController input = null;               
     [SerializeField] public Transform m_GroundCheck;                        
     [SerializeField] private TrailRenderer tr;
@@ -66,6 +67,7 @@ public class Dodge : MonoBehaviour
 
     private IEnumerator Dash()
     {
+        Physics2D.IgnoreLayerCollision(6, 11, true);
         //initializing different variables needed for a good dash
         canDash = false;
         isDashing = true;
@@ -106,7 +108,7 @@ public class Dodge : MonoBehaviour
 
         //puts it in the "can dash" state, allowing it to be called and ran again
         canDash = true;
-        
+        Physics2D.IgnoreLayerCollision(6, 11, false);
     }
 
 

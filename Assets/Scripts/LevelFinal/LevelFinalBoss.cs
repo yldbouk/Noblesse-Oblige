@@ -11,13 +11,29 @@ public class LevelFinalBoss : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
 
+    public Transform attack1point1;
+    public Transform attack1point2;
+    public Transform attack2point1;
+    public Transform attack2point2;
+    public LayerMask enemyLayer;
+
+    public int attackDamage = 40;
+    public float attackRange = 0.5f;
+    public float attackRate = 2f;
+    public float nextAttackTime = 0f;
+    private bool direction = true;
+
+    public int maxHealth = 100;
+    int currentHealth;
+    public healthbarBehavior healthbar;
+
     public GameObject flyingSword;
 
     
 
     bool readyToAttack = true;
 
-    public int health = 10;
+
 
     private bool _attacking;
     public bool attacking {
@@ -30,8 +46,9 @@ public class LevelFinalBoss : MonoBehaviour
     void HELPEREndAttack()   { _attacking = false; }
 
 
-    void Start()
+    void Awake()
     {
+        currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -40,7 +57,7 @@ public class LevelFinalBoss : MonoBehaviour
 
     void Update()
     {
-        while (health > 0)
+        while (currentHealth > 0)
         {
             if (!readyToAttack) return;
             switch (Random.Range(0, 3))
@@ -53,9 +70,59 @@ public class LevelFinalBoss : MonoBehaviour
         }
     }
 
+    private void collideCheck()
+    {
+        Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
+        Collider2D[] hit1Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hit1Enemies1)
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+        foreach (Collider2D enemy in hit1Enemies2)
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        //Play hurt animation
+        animator.SetTrigger("Hurt");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy died");
+
+        //Die animation
+        animator.SetBool("IsDead", true);
+
+        //Disable the enemy
+        rb.isKinematic = true;
+        GetComponent<BoxCollider2D>().enabled = false;
+        //animator.enabled = false;
+        this.enabled = false;
+
+    }
+
+    //Attack 1
     private IEnumerator AttackRush()
     {
         animator.SetInteger("state", 1);
+
+        collideCheck();
+
+        Collider2D[] hit2Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
+        Collider2D[] hit2Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hit2Enemies1)
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+        foreach (Collider2D enemy in hit2Enemies2)
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+
+
         while (Vector2.Distance(transform.position, player.transform.position) > 1.9f)
         {
             int direction = transform.position.x < player.transform.position.x ? 1 : -1;
@@ -70,9 +137,11 @@ public class LevelFinalBoss : MonoBehaviour
 
     }
 
+    //Attack 2
     private IEnumerator AttackJumpRush()
     {
         animator.SetTrigger("jump");
+        collideCheck();
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
@@ -93,6 +162,7 @@ public class LevelFinalBoss : MonoBehaviour
     private IEnumerator AttackJumpThrow()
     {
         animator.SetTrigger("jump");
+        collideCheck();
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
@@ -138,6 +208,22 @@ public class LevelFinalBoss : MonoBehaviour
             yield return new WaitForSecondsRealtime(.01f);
         } while (Vector2.Distance(transform.position, w) > 1.9f);
         animator.SetInteger("state", 0);
+    }
+    void OnDrawGizmosSelected()
+    {
+        if ((attack1point1 == null && attack1point2 == null) || (attack2point1 == null && attack2point2 == null))
+            return;
+
+        if (!direction)
+        {
+            Gizmos.DrawWireSphere(attack1point2.position, attackRange);
+            Gizmos.DrawWireSphere(attack2point2.position, attackRange);
+        }
+        else if (direction)
+        {
+            Gizmos.DrawWireSphere(attack1point1.position, attackRange);
+            Gizmos.DrawWireSphere(attack2point1.position, attackRange);
+        }
     }
 
 }
