@@ -21,4 +21,9 @@ public class PlayerController : InputController
     {
         return Input.GetButtonDown("Roll");
     }
+
+    public override bool RetrieveAttackInput()
+    {
+        return Input.GetButtonDown("Attack1");
+    }
 }

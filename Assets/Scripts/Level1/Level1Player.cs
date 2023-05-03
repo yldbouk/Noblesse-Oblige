@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Level1Player : MonoBehaviour
 {
-    Vector2 waypoint = new Vector2(-5,-2);
+    Vector2 waypoint = new Vector2(-5,-1.932f);
     Animator animator;
 
     void Start()
@@ -18,9 +18,9 @@ public class Level1Player : MonoBehaviour
     {
         animator.SetInteger("state", 1);
         do {
-            transform.position = new Vector2(transform.position.x + .015f, transform.position.y);
-            yield return null;
-        }  while (Vector3.Distance(transform.position, waypoint) > .02f);
+            transform.position = new Vector2(transform.position.x + .06f, transform.position.y);
+            yield return new WaitForSecondsRealtime(.01f);
+        } while (Vector3.Distance(transform.position, waypoint) > .03f);
         animator.SetInteger("state", 0);
     }
 }

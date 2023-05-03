@@ -19,7 +19,10 @@ public static class Dialogue
         "Hath thy tongue taken a vow of silence? Speak!",
         "...",
         "Brother?",
-        "Kill"
+        "Kill",
+        "Tell Brother, what meaneth this? Hast thou lost thy wits?",
+        "...",
+        "He's coming again, I'll tap him as a warning..."
 
 
     };

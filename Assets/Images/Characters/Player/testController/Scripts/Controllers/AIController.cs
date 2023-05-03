@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class AIController : InputController
 {
+    public override bool RetrieveAttackInput()
+    {
+        return true;
+    }
+
     public override bool RetrieveDodgeInput()
     {
         return true;

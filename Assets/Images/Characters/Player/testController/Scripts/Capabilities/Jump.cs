@@ -22,17 +22,20 @@ public class Jump : MonoBehaviour
     animationState state;
     private Ground ground;
     private Vector2 velocity;
+    MainManager mainManager;
 
     private int jumpPhase;
     private float defaultGravityScale;
 
+    
     private bool desiredJump;
-    private bool onGound;
+    public bool onGound;
     const float k_GroundedRadius = .2f;                         // Radius of the overlap circle to determine if grounded
 
     // Start is called before the first frame update
     void Awake()
     {
+        mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         body = GetComponent<Rigidbody2D>();
         ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
@@ -43,6 +46,8 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (mainManager.inCutscene) return;
+
         onGound = false;
         desiredJump |= input.RetrieveJumpInput();
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
@@ -66,7 +71,9 @@ public class Jump : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (mainManager.inCutscene) return;
 
+        
         velocity = body.velocity;
 
         if (onGound)
@@ -74,16 +81,19 @@ public class Jump : MonoBehaviour
 
         if (desiredJump)
         {
+            Debug.Log(body.velocity.y);
+            Debug.Log(onGound);
             desiredJump = false;
+            
             JumpAction();
         }
 
-        if (body.velocity.y > 0)
+        if (body.velocity.y > 0.01)
         {
             body.gravityScale = upwardMovementMultiplier;
             
         }
-        else if (body.velocity.y < 0)
+        else if (body.velocity.y < -0.01)
         {
             body.gravityScale = downwardMovementMultiplier;
             
