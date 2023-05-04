@@ -4,16 +4,26 @@ public class Move : MonoBehaviour
 {
 
     [SerializeField] private InputController input = null;
+    [SerializeField] Animator animator;
     [SerializeField, Range(0f, 100f)] private float maxSpeed = 4f;
     [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
     [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 4f;
+
+    [Space]
+    [SerializeField] int maxHealth = 100;
+    int currentHealth;
+
+    [Space]
+    [SerializeField] AudioSource audio;
+    private AudioClip dieClip;
+    private AudioClip hurtClip;
 
     private Vector2 direction;
     private Vector2 desiredVelocity;
     private Vector2 velocity;
     private Rigidbody2D body;
     private SpriteRenderer sprite;
-    public Animator animator;
+    
     private enum animationState { idle, running, jumping, falling }
     animationState state;
     private Ground ground;
@@ -75,5 +85,36 @@ public class Move : MonoBehaviour
         velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
         body.velocity = velocity;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+
+        //Play hurt animation
+        animator.SetTrigger("Hurt");
+        
+        Debug.Log("Hurt");
+
+        if (currentHealth <= 0)
+        {
+            Die();
+            
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy died");
+
+        if (gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
+        //Die animation
+        animator.SetBool("IsDead", true);
+
+        //Disable the enemy
+        gameObject.layer = 12;
+        enabled = false;
+
     }
 }
