@@ -9,6 +9,8 @@ public class enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public healthbarBehavior healthbar;
+    public AudioSource HitSource;
+    public AudioSource DeathSource;
 
     // Start is called before the first frame update
     void Start()
@@ -25,19 +27,27 @@ public class enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+         
 
         //Play hurt animation
         animator.SetTrigger("Hurt");
+         HitSource.Play();
+         Debug.Log("Hurt");
+         DeathSource.Pause();
 
         if(currentHealth <= 0) 
         {
             Die();
+            DeathSource.Play();
+            HitSource.Pause();
         }
     }
 
     void Die()
     {
         Debug.Log("Enemy died");
+        
+       
 
      if(gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
         //Die animation

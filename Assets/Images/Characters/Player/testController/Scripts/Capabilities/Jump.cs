@@ -10,8 +10,8 @@ public class Jump : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float downwardMovementMultiplier = 3f;
     [SerializeField, Range(0f, 5f)] private float upwardMovementMultiplier = 3f;
     [SerializeField] public LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
-    [SerializeField] public Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
-
+    [SerializeField] public Transform m_GroundCheck;                           // A position marking where to check if the player is grounded
+    public AudioSource KnightSource;
     private Rigidbody2D body;
     private SpriteRenderer sprite;
     public Animator animator;
@@ -37,6 +37,7 @@ public class Jump : MonoBehaviour
         ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
         defaultGravityScale = 1f;
     }
 
@@ -81,6 +82,7 @@ public class Jump : MonoBehaviour
             Debug.Log(body.velocity.y);
             Debug.Log(onGound);
             desiredJump = false;
+            KnightSource.Play();
             
             JumpAction();
         }

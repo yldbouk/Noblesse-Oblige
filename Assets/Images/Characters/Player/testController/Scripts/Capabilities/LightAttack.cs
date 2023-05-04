@@ -8,6 +8,7 @@ public class LightAttack : MonoBehaviour
     private Rigidbody2D body;
     private SpriteRenderer sprite;
     public Animator animator;
+    public AudioSource KnightSource;
 
     private bool desireAttack;
     private bool attacking = false;
@@ -52,6 +53,7 @@ public class LightAttack : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
                 desireAttack = false;
+                KnightSource.Play();
             }
         }
     }
