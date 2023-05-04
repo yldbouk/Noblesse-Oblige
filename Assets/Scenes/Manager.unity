@@ -380,7 +380,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: OpeningCutscene
+          m_StringArgument: Prologue
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &489113579
@@ -514,12 +514,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c6fd75fafa851f4c9cb2979eabe66ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grayscale: 0
   shader: {fileID: 4800000, guid: ffbd669d0a43bd449a1e9974b9f010aa, type: 3}
 --- !u!114 &519420034
 MonoBehaviour:
@@ -530,11 +529,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a7b910b27991b146b86b976d54001b9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e2d33daca920614fb2cee92330fff23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowSpeed: 2
-  target: {fileID: 7097150737054858954, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
 --- !u!1 &618289098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1053,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level1-Tutorial
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &755882484
