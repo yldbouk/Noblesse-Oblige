@@ -9,6 +9,9 @@ public class LightAttack : MonoBehaviour
     private SpriteRenderer sprite;
     public Animator animator;
 
+    [SerializeField] AudioClip audioClip;
+    private AudioSource fxaudio;
+
     private bool desireAttack;
     private bool attacking = false;
 
@@ -22,22 +25,28 @@ public class LightAttack : MonoBehaviour
     public float nextAttackTime = 0f;
     private bool direction = true;
 
+    MainManager mainManager;
+
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
+        
+        fxaudio = gameObject.AddComponent<AudioSource>();
+        fxaudio.clip = audioClip;
     }
 
     void Update()
     {
-        if (attacking) return;
-        desireAttack |= input.RetrieveAttackInput();
+        if (mainManager.inCutscene) return;
+        desireAttack |= input.RetrieveAttackInput(); 
     }
 
     void FixedUpdate()
     {
-        if(attacking) return;
+        if(attacking || mainManager.inCutscene) return;
         
         if (body.velocity.x <= -0.01f)
             direction = false;
@@ -52,6 +61,7 @@ public class LightAttack : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
                 desireAttack = false;
+                fxaudio.Play();
             }
         }
     }
