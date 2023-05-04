@@ -11,11 +11,8 @@ public class Jump : MonoBehaviour
     [SerializeField, Range(0f, 5f)] private float upwardMovementMultiplier = 3f;
     [SerializeField] public LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] public Transform m_GroundCheck;                           // A position marking where to check if the player is grounded
-    [SerializeField] AudioClip audioClip;
-    private AudioSource fxaudio;
-
-    public AudioClip jumpSound;
-    public AudioSource knightSurce;
+    [SerializeField] AudioClip jumpClip;
+    private new AudioSource audio;
 
     private Rigidbody2D body;
     private SpriteRenderer sprite;
@@ -41,8 +38,8 @@ public class Jump : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
 
-        fxaudio = gameObject.AddComponent<AudioSource>();
-        fxaudio.clip = audioClip; 
+        audio = gameObject.AddComponent<AudioSource>();
+        audio.clip = jumpClip; 
         
         defaultGravityScale = 1f;
 
@@ -89,7 +86,7 @@ public class Jump : MonoBehaviour
             Debug.Log(body.velocity.y);
             Debug.Log(onGound);
             desiredJump = false;
-            knightSurce.Play();
+            audio.Play();
             JumpAction();
         }
 
@@ -116,7 +113,7 @@ public class Jump : MonoBehaviour
     {
         if(onGound)
         {
-            fxaudio.Play();
+            audio.Play();
             jumpPhase += 1;
             float jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * jumpHeight);
 
