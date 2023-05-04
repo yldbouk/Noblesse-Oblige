@@ -17,7 +17,6 @@ public class Jump : MonoBehaviour
     public Animator animator;
     private enum animationState {idle, running, jumping, falling }
     animationState state;
-    private Ground ground;
     private Vector2 velocity;
     MainManager mainManager;
 
@@ -34,7 +33,6 @@ public class Jump : MonoBehaviour
     {
         mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         body = GetComponent<Rigidbody2D>();
-        ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         

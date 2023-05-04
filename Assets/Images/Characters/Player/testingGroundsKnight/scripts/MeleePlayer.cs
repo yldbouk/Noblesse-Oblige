@@ -15,9 +15,14 @@ public class MeleePlayer : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    MainManager mainManager;
+
+    private void Start() { mainManager = GameObject.Find("Manager").GetComponent<MainManager>(); }
+
     // Update is called once per frame
     void Update()
     {
+        if (mainManager.inCutscene) return;
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.F))

@@ -134,7 +134,7 @@ public class Level1Manager : MonoBehaviour
         Camera.main.GetComponent<CameraGrayscale>().enabled = false;
 
         player.GetComponent<Animator>().SetTrigger("Attack");
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.15f);
 
         audioHit.Play();
         globalToolTipBG.SetActive(true);

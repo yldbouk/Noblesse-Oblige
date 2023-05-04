@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - Camera Positions
   - Enemy
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

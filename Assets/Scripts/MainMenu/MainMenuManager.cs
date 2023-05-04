@@ -59,7 +59,7 @@ public class MainMenuManager : MonoBehaviour
         yield return StartCoroutine(mainManager.OverlayFadeOut(1000));
 
         // load next scene
-        mainManager.LoadNewLevel("Prologue", "MainMenu");
+        mainManager.LoadNewLevel("Prologue");
     }
     IEnumerator ExitGame()
     {
