@@ -101,12 +101,12 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.4688878
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 69a07568c11ac064e8f2431299709dfd, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -149,10 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54da3979c2fe03f42b12c7eb5483445d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2504580568297144187}
-  PointA: {fileID: 0}
-  PointB: {fileID: 0}
-  speed: 2
+  speed: 5
+  distanceThreshold: 1.2
+  attackCooldown: 5
 --- !u!114 &2504580568297144184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,9 +164,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42d6c7f2e7902478703a6d23f18ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 2504580568297144167}
   animator: {fileID: 2504580568297144187}
   maxHealth: 100
   healthbar: {fileID: 0}
+  DieClip: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
+  HitClip: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
 --- !u!95 &2504580568297144187
 Animator:
   serializedVersion: 5

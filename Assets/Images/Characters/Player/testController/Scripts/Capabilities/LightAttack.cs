@@ -8,7 +8,9 @@ public class LightAttack : MonoBehaviour
     private Rigidbody2D body;
     private SpriteRenderer sprite;
     public Animator animator;
-    public AudioSource KnightSource;
+
+    [SerializeField] AudioClip audioClip;
+    private AudioSource fxaudio;
 
     private bool desireAttack;
     private bool attacking = false;
@@ -31,6 +33,9 @@ public class LightAttack : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
+        
+        fxaudio = gameObject.AddComponent<AudioSource>();
+        fxaudio.clip = audioClip;
     }
 
     void Update()
@@ -56,7 +61,7 @@ public class LightAttack : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
                 desireAttack = false;
-                KnightSource.Play();
+                fxaudio.Play();
             }
         }
     }

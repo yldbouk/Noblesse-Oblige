@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2044065824409673606}
   - component: {fileID: 6665637280599851256}
   - component: {fileID: 1456767944423677909}
+  - component: {fileID: 1740203552}
   m_Layer: 11
   m_Name: Trash Monster
   m_TagString: Enemy
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -1169306151
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 67804478, guid: afaaef86be59eae429c629687f272c67, type: 3}
+  m_Sprite: {fileID: -1553367748, guid: afaaef86be59eae429c629687f272c67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &131638689468525463
@@ -170,9 +171,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42d6c7f2e7902478703a6d23f18ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  body: {fileID: 0}
   animator: {fileID: 1456767944423677909}
   maxHealth: 100
   healthbar: {fileID: 0}
+  DieClip: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
+  HitClip: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
 --- !u!95 &1456767944423677909
 Animator:
   serializedVersion: 5
@@ -194,3 +198,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1740203552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615632510848835196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54da3979c2fe03f42b12c7eb5483445d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  distanceThreshold: 1.6
+  attackCooldown: 4

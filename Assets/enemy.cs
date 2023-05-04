@@ -9,16 +9,27 @@ public class enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public healthbarBehavior healthbar;
-    public AudioSource HitSource;
-    public AudioSource DeathSource;
+
+
+    private AudioSource fxdie;
+    private AudioSource fxhit;
+
+    [SerializeField] AudioClip DieClip;
+    [SerializeField] AudioClip HitClip;
 
     // Start is called before the first frame update
     void Start()
     {
+        fxdie = gameObject.AddComponent<AudioSource>();
+        fxdie.clip = DieClip;
+        fxhit= gameObject.AddComponent<AudioSource>();
+        fxhit.clip = HitClip;
+
         currentHealth = maxHealth;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         healthbar.SetHealth(currentHealth, maxHealth);
+
         
     }
 
@@ -31,15 +42,15 @@ public class enemy : MonoBehaviour
 
         //Play hurt animation
         animator.SetTrigger("Hurt");
-         HitSource.Play();
+         fxhit.Play();
          Debug.Log("Hurt");
-         DeathSource.Pause();
+         fxdie.Pause();
 
         if(currentHealth <= 0) 
         {
             Die();
-            DeathSource.Play();
-            HitSource.Pause();
+            fxdie.Play();
+            fxhit.Pause();
         }
     }
 

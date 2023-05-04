@@ -267,6 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   m_GroundCheck: {fileID: 8422976258876739500}
+  audioClip: {fileID: 8300000, guid: 4408707996114fb4a80b3ae49c83d7d3, type: 3}
   animator: {fileID: 8422976258464458656}
   onGound: 0
 --- !u!114 &8422976258464458688
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 6fc79594ceb237c4f801d4828feb6b91, type: 2}
   animator: {fileID: 8422976258464458656}
+  audioClip: {fileID: 8300000, guid: 7dcf9e411356e0144a3c5fa88b756e7d, type: 3}
   attackPoint1: {fileID: 8422976258095881557}
   attackPoint2: {fileID: 4580512736813396061}
   enemyLayer:
