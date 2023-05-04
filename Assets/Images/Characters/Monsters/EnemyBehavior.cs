@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -65,11 +66,11 @@ public class EnemyBehavior : MonoBehaviour
         // Damage them
         foreach (Collider2D enemy in hitEnemies1)
         {
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            enemy.GetComponent<Move>().TakeDamage(attackDamage);
         }
         foreach (Collider2D enemy in hitEnemies2)
         {
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            enemy.GetComponent<Move>().TakeDamage(attackDamage);
         }
 
         yield return new WaitForSeconds(.25f);

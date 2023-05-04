@@ -8,7 +8,6 @@ public class enemy : MonoBehaviour
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
-    public healthbarBehavior healthbar;
 
 
     private new AudioSource audio;
@@ -24,7 +23,7 @@ public class enemy : MonoBehaviour
         currentHealth = maxHealth;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        healthbar.SetHealth(currentHealth, maxHealth);
+    
     }
 
     

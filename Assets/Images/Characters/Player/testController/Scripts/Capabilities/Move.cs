@@ -41,6 +41,7 @@ public class Move : MonoBehaviour
         ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
 
