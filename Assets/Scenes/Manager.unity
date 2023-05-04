@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackOverlay: {fileID: 1841560834}
-  debugMode: 0
+  debugMode: 1
   inCutscene: 0
 --- !u!4 &426025869
 Transform:
@@ -528,11 +528,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a7b910b27991b146b86b976d54001b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FollowSpeed: 2
   target: {fileID: 7097150737054858954, guid: d6b961c7267a7424b9ae98dc0bfb6e5c, type: 3}
 --- !u!1 &618289098
 GameObject:
