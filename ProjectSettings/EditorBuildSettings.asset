@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Prologue.unity
     guid: ac95834a426381449858815dcae18b2d
   - enabled: 1
-    path: Assets/Scenes/Level1-Tutorial.unity
+    path: Assets/Scenes/Level1.unity
     guid: 3eaa3f27365c83244926781656412d00
   - enabled: 1
     path: Assets/Scenes/Level0 - TestingGrounds.unity

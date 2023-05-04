@@ -36,7 +36,6 @@ public class MainManager : MonoBehaviour
         Debug.Log("Unloading " + oldLevel + ", Loading " + newLevel);
         SceneManager.UnloadSceneAsync(oldLevel);
         SceneManager.LoadScene(newLevel, LoadSceneMode.Additive);
-
     }
 
     public float overlay

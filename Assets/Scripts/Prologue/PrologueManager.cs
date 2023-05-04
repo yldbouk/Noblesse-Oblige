@@ -81,6 +81,7 @@ public class PrologueManager : MonoBehaviour
         yield return new WaitForSeconds(4);
 
         yield return mainManager.OverlayFadeOut(3000);
+        mainManager.LoadNewLevel("Tutorial", "Prologue");
 
     }
 
