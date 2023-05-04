@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PrologueParallax : MonoBehaviour
 {
-    public float parallaxSpeed = .05f;
+    public float parallaxSpeed = .15f;
     // Start is called before the first frame update
     void Start()
     {

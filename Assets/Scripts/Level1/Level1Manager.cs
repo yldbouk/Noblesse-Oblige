@@ -10,6 +10,7 @@ public class Level1Manager : MonoBehaviour
     Level1Player player;
     Level1Boss boss;
 
+    [SerializeField] Collider2D[] collidersToEnableAfterCutscene;
 
     [SerializeField] GameObject dialogueBG;
     [SerializeField] Text dialogueText;
@@ -71,7 +72,7 @@ public class Level1Manager : MonoBehaviour
         audioTimeFrozen.Play();
         player.GetComponent<Animator>().speed = 0;
         boss.GetComponent<Animator>().speed = 0;
-        Camera.main.GetComponent<CameraScript>().grayscale = true;
+        Camera.main.GetComponent<CameraGrayscale>().enabled = true;
         yield return new WaitForSeconds(4);
 
         audioTooltip.Play();
@@ -84,7 +85,7 @@ public class Level1Manager : MonoBehaviour
         //player.GetComponent<movement>().enabled = true;
         player.GetComponent<Animator>().speed = 1;
         boss.GetComponent<Animator>().speed = 1; 
-        Camera.main.GetComponent<CameraScript>().grayscale = false;
+        Camera.main.GetComponent<CameraGrayscale>().enabled = false;
         Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
         {
             player.GetComponent<Animator>().SetTrigger("roll");
@@ -117,7 +118,7 @@ public class Level1Manager : MonoBehaviour
         audioTimeFrozen.Play();
         player.GetComponent<Animator>().speed = 0;
         boss.GetComponent<Animator>().speed = 0;
-        Camera.main.GetComponent<CameraScript>().grayscale = true;
+        Camera.main.GetComponent<CameraGrayscale>().enabled = true;
         yield return new WaitForSeconds(1);
 
         audioTooltip.Play();
@@ -130,7 +131,7 @@ public class Level1Manager : MonoBehaviour
         tooltipText.SetActive(false);
         player.GetComponent<Animator>().speed = 1;
         //boss.GetComponent<Animator>().speed = 1;
-        Camera.main.GetComponent<CameraScript>().grayscale = false;
+        Camera.main.GetComponent<CameraGrayscale>().enabled = false;
 
         player.GetComponent<Animator>().SetTrigger("Attack");
         yield return new WaitForSeconds(.1f);
@@ -147,11 +148,9 @@ public class Level1Manager : MonoBehaviour
         globalTooltipText.text = "Congratulations";
         yield return new WaitForSeconds(4);
 
-        globalToolTipBG.SetActive(false);
+        globalToolTipBG.SetActive(false); 
+        foreach (Collider2D c in collidersToEnableAfterCutscene) c.enabled = true;
         mainManager.inCutscene = false;
-
-
-
 
     }
 
@@ -169,7 +168,7 @@ public class Level1Manager : MonoBehaviour
             float s = speed;
             switch (chars[i])
             {
-                //case ' ': s += .05f; break;
+                case ' ': s += .02f; break;
                 case '"': continue;
                 case ',': s *= 2; break;
                 case '.':

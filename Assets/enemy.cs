@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class enemy : MonoBehaviour
 {
-
+    public Rigidbody2D body;
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+    public healthbarBehavior healthbar;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        healthbar.SetHealth(currentHealth, maxHealth);
+        
     }
+
+    
 
     public void TakeDamage(int damage)
     {
@@ -32,11 +39,14 @@ public class enemy : MonoBehaviour
     {
         Debug.Log("Enemy died");
 
+     if(gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
         //Die animation
         animator.SetBool("IsDead", true);
 
         //Disable the enemy
-        GetComponent<Collider2D>().enabled = false;
+        body.isKinematic = true;
+        GetComponent<BoxCollider2D>().enabled = false;
+        //animator.enabled = false;
         this.enabled = false;
         
     }

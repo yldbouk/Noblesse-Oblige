@@ -10724,7 +10724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &343989848
 Animator:
   serializedVersion: 5
@@ -10735,7 +10735,7 @@ Animator:
   m_GameObject: {fileID: 343989847}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5c33dcae789c39844868a473f8747528, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7253fb776400f8043aa23fabef80eee7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10785,7 +10785,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -709188253
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 1
   m_Sprite: {fileID: 163196289, guid: 03028e6d5bf54d64d9aa6972a73dd47e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -29052,7 +29052,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -709188253
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -35948,7 +35948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1227629399
 AudioListener:
   m_ObjectHideFlags: 0
@@ -36282,7 +36282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1239156792
 Transform:
   m_ObjectHideFlags: 0
@@ -43626,7 +43626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1512709619
 Transform:
   m_ObjectHideFlags: 0
@@ -44176,7 +44176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1542250901
 Animator:
   serializedVersion: 5
@@ -44187,7 +44187,7 @@ Animator:
   m_GameObject: {fileID: 1542250900}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f1606ea610764dc4ba760dd689a77d40, type: 2}
+  m_Controller: {fileID: 9100000, guid: 936360349a6d25b47ba28846d28a90dd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -44237,7 +44237,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -709188253
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 1024404520, guid: d421c2d8c23a5b44d9e3b2fc796f26d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -50751,7 +50751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1756534147
 CanvasRenderer:
   m_ObjectHideFlags: 0
