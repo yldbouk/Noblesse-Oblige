@@ -26,26 +26,27 @@ public class Dodge : MonoBehaviour
     public float distanceBetweenImages;
     private float direction = 1f;
 
+    MainManager mainManager;
+
     // Start is called before the first frame update
     void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
+        mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isDashing) return;
+        if (mainManager.inCutscene) return;
         desiredDash |= input.RetrieveDodgeInput();
-        
     }
 
     private void FixedUpdate()
     {
-        if (isDashing) return;
+        if (isDashing || mainManager.inCutscene) return;
 
         if(body.velocity.x <= -0.01f)
             direction = -1f;
