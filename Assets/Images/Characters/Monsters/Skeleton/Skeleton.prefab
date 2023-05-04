@@ -216,9 +216,8 @@ MonoBehaviour:
   body: {fileID: 2504580568297144167}
   animator: {fileID: 2504580568297144187}
   maxHealth: 100
-  healthbar: {fileID: 0}
-  DieClip: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
-  HitClip: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
+  dieClip: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
+  hitClip: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
 --- !u!114 &2504580568297144186
 MonoBehaviour:
   m_ObjectHideFlags: 0

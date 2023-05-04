@@ -94,9 +94,9 @@ public class Move : MonoBehaviour
 
 
         //Play hurt animation
-        animator.SetTrigger("Hurt");
+        animator.SetTrigger("hurt");
         
-        Debug.Log("Hurt");
+        Debug.Log("Player Hurt");
 
         if (currentHealth <= 0)
         {

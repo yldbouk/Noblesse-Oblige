@@ -36,7 +36,7 @@ public class enemy : MonoBehaviour
         //Play hurt animation
         animator.SetTrigger("Hurt");
         audio.clip = hitClip; audio.Play();
-         Debug.Log("Hurt");
+        //Debug.Log("Hurt");
 
         if(currentHealth <= 0) 
         {
@@ -47,7 +47,7 @@ public class enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy died");
+        //Debug.Log("Enemy died");
         
      if(gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
         //Die animation

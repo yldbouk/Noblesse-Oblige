@@ -61,8 +61,10 @@ public class Dodge : MonoBehaviour
             PlayerAfterImagePool.Instance.GetFromPool();
             lastImageXpos = transform.position.x;
             Debug.Log(body.velocity);
+            gameObject.layer = 13;
             StartCoroutine(Dash());
             desiredDash = false;
+            gameObject.layer = 6;
         }
     }
 

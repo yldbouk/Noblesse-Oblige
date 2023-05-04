@@ -41,7 +41,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (Vector2.Distance(transform.position, target.transform.position) > distanceThreshold)
         {
-            animator.SetBool("isRunning", true);
+            animator.SetBool("IsRunning", true);
             direction = (transform.position.x < target.transform.position.x);
             sprite.flipX = (transform.position.x > target.transform.position.x) ^ invertAxis;
             transform.position = new Vector2(transform.position.x + (direction ? 1 : -1) * speed /100, transform.position.y);
@@ -55,10 +55,11 @@ public class EnemyBehavior : MonoBehaviour
     private IEnumerator Attack() 
     {
         // Play an attack animation
-        animator.SetBool("isRunning", false);
-        animator.SetBool("isNearPlayer", true);
+        animator.SetBool("IsRunning", false);
+        animator.SetBool("IsNearPlayer", true);
 
         // Detect enemies in range of attack
+        yield return new WaitForSeconds(.65f);
 
         Collider2D[] hitEnemies1 = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange, enemyLayer);
         Collider2D[] hitEnemies2 = Physics2D.OverlapCircleAll(attackPoint2.position, attackRange, enemyLayer);
@@ -74,7 +75,7 @@ public class EnemyBehavior : MonoBehaviour
         }
 
         yield return new WaitForSeconds(.25f);
-        animator.SetBool("isNearPlayer", false);
+        animator.SetBool("IsNearPlayer", false);
         yield return new WaitForSeconds(attackCooldown);
         readyToAttack = true;
     }

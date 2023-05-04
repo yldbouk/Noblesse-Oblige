@@ -267,7 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   m_GroundCheck: {fileID: 8422976258876739500}
-  audioClip: {fileID: 8300000, guid: 4408707996114fb4a80b3ae49c83d7d3, type: 3}
+  jumpClip: {fileID: 8300000, guid: 4408707996114fb4a80b3ae49c83d7d3, type: 3}
   animator: {fileID: 8422976258464458656}
   onGound: 0
 --- !u!114 &8422976258464458688
@@ -283,10 +283,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 11400000, guid: 6fc79594ceb237c4f801d4828feb6b91, type: 2}
+  animator: {fileID: 8422976258464458656}
   maxSpeed: 6
   maxAcceleration: 40
   maxAirAcceleration: 20
-  animator: {fileID: 8422976258464458656}
+  maxHealth: 100
+  audio: {fileID: 0}
 --- !u!114 &2749148935059230972
 MonoBehaviour:
   m_ObjectHideFlags: 0
