@@ -13,6 +13,7 @@ public class DoorCollider : MonoBehaviour
 
    
     private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag != "Player") return;
         if (preventduplicates) return; else preventduplicates = true;
         var scenePath = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetSceneAt(1).buildIndex + 1);
         var sceneNameStart = scenePath.LastIndexOf("/", StringComparison.Ordinal) + 1;

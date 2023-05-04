@@ -117,12 +117,12 @@ public class LevelFinalBoss : MonoBehaviour
 
         //collideCheck();
 
-        Collider2D[] hit2Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
-        Collider2D[] hit2Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
-        foreach (Collider2D enemy in hit2Enemies1)
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-        foreach (Collider2D enemy in hit2Enemies2)
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+        //Collider2D[] hit2Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
+        //Collider2D[] hit2Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
+        //foreach (Collider2D enemy in hit2Enemies1)
+        //    enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+        //foreach (Collider2D enemy in hit2Enemies2)
+        //    enemy.GetComponent<enemy>().TakeDamage(attackDamage);
 
 
         while (Vector2.Distance(transform.position, player.transform.position) > 1.9f)
@@ -147,6 +147,7 @@ public class LevelFinalBoss : MonoBehaviour
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
         yield return new WaitForSeconds(2);
 
         animator.SetBool("falling", true);
@@ -168,28 +169,14 @@ public class LevelFinalBoss : MonoBehaviour
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
+
         yield return new WaitForSeconds(2);
 
         animator.SetBool("falling", true);
 
-        int[] offsets = new int[4];
-       
-        for (int i = 0; i < 4; i++)
-        {
-            offsets[i] = Random.Range(-10, 11);
-            Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offsets[i], 10), Quaternion.AngleAxis(135, Vector3.forward));
-            yield return new WaitForSeconds(.5f);
-        }
-
-        yield return new WaitForSeconds(1);
-        GameObject sword;
-        for (int i = 0; i < 4; i++)
-        {
-            sword = Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offsets[i], 10), Quaternion.AngleAxis(135, Vector3.forward));
-            sword.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 60);
-
-            yield return new WaitForSeconds(.5f);
-        }
+        for (int i = 0; i < 8; i++) { StartCoroutine(Throw()); yield return new WaitForSeconds(.3f); }
+        yield return new WaitForSeconds(5);
 
         rb.gravityScale = 1;
         while (rb.velocity.y < 0) yield return null;
@@ -199,6 +186,15 @@ public class LevelFinalBoss : MonoBehaviour
         readyToAttack = true;
     }
 
+    private IEnumerator Throw()
+    {
+        int offset = Random.Range(-10, 11);
+        Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offset, 10), Quaternion.AngleAxis(135, Vector3.forward));  
+        yield return new WaitForSeconds(1);
+ 
+        var sword = Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offset, 10), Quaternion.AngleAxis(135, Vector3.forward));
+        sword.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 60);
+    }
 
     public IEnumerator GoTo(Vector2 w)
     {

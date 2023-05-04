@@ -85,7 +85,6 @@ public class Jump : MonoBehaviour
             Debug.Log(body.velocity.y);
             Debug.Log(onGound);
             desiredJump = false;
-            fxaudio.Play();
             
             JumpAction();
         }
@@ -113,7 +112,7 @@ public class Jump : MonoBehaviour
     {
         if(onGound)
         {
-            
+            fxaudio.Play();
             jumpPhase += 1;
             float jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * jumpHeight);
 

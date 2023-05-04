@@ -23,7 +23,8 @@ public class LevelFinalManager : MonoBehaviour
 
 
     public void DEBUGSkipCutscene()
-    {        
+    {
+        GameObject.Find("mus_finalboss").GetComponent<AudioSource>().time = 101.3f;
         dialogueBG.SetActive(false);
         foreach (var o in DomainExpansionToDisable) o.SetActive(false);
         foreach (var o in DomainExpansionToEnable) o.SetActive(true);
@@ -74,7 +75,7 @@ public class LevelFinalManager : MonoBehaviour
     {
         Debug.Log("Starting Cutscene");
         mainManager.inCutscene = true;
-        yield return new WaitForSeconds(2); 
+        yield return new WaitForSeconds(3); 
         //Physics2D.IgnoreLayerCollision(6, 11, true);
         yield return mainManager.OverlayFadeIn(2000);
         yield return player.GoToWaypoint();

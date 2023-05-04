@@ -17,7 +17,7 @@ public class FlyingSword : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y-.2f);
+        transform.position = new Vector2(transform.position.x, transform.position.y-.5f);
         if(transform.position.y < -10) Destroy(gameObject);
         //Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
         //foreach (Collider2D enemy in hit1Enemies1)
