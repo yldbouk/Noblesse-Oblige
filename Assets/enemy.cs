@@ -58,17 +58,13 @@ public class enemy : MonoBehaviour
     {
         Debug.Log("Enemy died");
         
-       
-
      if(gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
         //Die animation
         animator.SetBool("IsDead", true);
 
         //Disable the enemy
-        body.isKinematic = true;
-        GetComponent<BoxCollider2D>().enabled = false;
-        //animator.enabled = false;
-        this.enabled = false;
+        gameObject.layer = 12;
+        enabled = false;
         
     }
 }
