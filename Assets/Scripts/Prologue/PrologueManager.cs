@@ -9,12 +9,10 @@ public class PrologueManager : MonoBehaviour
 {
 
     MainManager mainManager;
-
     public Canvas canvas;
-
     Text prologueText;
-
     private AudioSource blip;
+    [SerializeField] AudioClip backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +21,7 @@ public class PrologueManager : MonoBehaviour
         prologueText = canvas.transform.Find("Prologue").GetComponentInChildren<Text>();
         mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         blip = prologueText.gameObject.GetComponent<AudioSource>();
+        mainManager.PlayBGM(backgroundMusic, 2);
 
         canvas.transform.Find("BlackBars").gameObject.SetActive(false);
 
@@ -51,7 +50,7 @@ public class PrologueManager : MonoBehaviour
         yield return DisplayCharacterByCharacter(Dialogue.prologue[3]);
         yield return waitForInput();
 
-        yield return mainManager.OverlayFadeOut(1000);
+        yield return mainManager.OverlayFadeOut(1000, true);
 
         // remove prologue overlay
         Destroy(prologueText.transform.parent.gameObject);
@@ -66,7 +65,7 @@ public class PrologueManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("parallax").AddComponent<PrologueParallax>();
 
         // scene 2... action
-        yield return mainManager.OverlayFadeIn(1000);
+        yield return mainManager.OverlayFadeIn(1000, true);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[4], true);
         yield return new WaitForSeconds(5);
@@ -81,7 +80,7 @@ public class PrologueManager : MonoBehaviour
         yield return new WaitForSeconds(4);
 
         yield return mainManager.OverlayFadeOut(3000);
-        mainManager.LoadNewLevel("Tutorial");
+        mainManager.LoadNewLevel("Level1");
 
     }
 
@@ -94,11 +93,7 @@ public class PrologueManager : MonoBehaviour
         {
             prologueText.text += chars[i];
 
-            if(Input.GetMouseButton(0) && i > 4)
-            {
-                yield return new WaitForSeconds(.005f);
-                continue;
-            }
+            if(Input.GetMouseButton(0) && i > 4) continue;
 
             blip.Play();
 

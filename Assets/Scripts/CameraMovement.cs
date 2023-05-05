@@ -10,7 +10,6 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        if (mainManager.inCutscene) return;
         GameObject objectToFollow = GameObject.FindGameObjectWithTag("Player");
         if (objectToFollow == null) return;
         GameObject[] poses = GameObject.FindGameObjectsWithTag("Camera Positions");

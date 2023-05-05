@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +16,16 @@ public class Level1Manager : MonoBehaviour
     [SerializeField] GameObject tooltipText;
     [SerializeField] GameObject globalToolTipBG;
     [SerializeField] Text globalTooltipText;
-
+    [Space]
     [SerializeField] AudioSource blipPlayer;
     [SerializeField] AudioSource blipBoss;
     [SerializeField] AudioSource audioTooltip;
     [SerializeField] AudioSource audioTimeFrozen;
     [SerializeField] AudioSource audioHit;
+    [SerializeField] AudioSource audioAttack;
+    [Space]
+    [SerializeField] public AudioClip backgroundMusic;
+
 
 
     // Start is called before the first frame update
@@ -32,12 +34,13 @@ public class Level1Manager : MonoBehaviour
         mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Level1Player>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Level1Boss>();
-
+        mainManager.PlayBGM(null);
         StartCoroutine(Cutscene());
     }
 
     IEnumerator Cutscene()
     {
+        
         mainManager.inCutscene = true;
         Physics2D.IgnoreLayerCollision(6, 11, true);
         yield return mainManager.OverlayFadeIn(2000);
@@ -80,7 +83,7 @@ public class Level1Manager : MonoBehaviour
 
         while (!Input.GetKeyDown(KeyCode.LeftShift)) yield return null;
 
-        audioTimeFrozen.Play();
+        audioAttack.Play();
         tooltipText.SetActive(false);
         //player.GetComponent<movement>().enabled = true;
         player.GetComponent<Animator>().speed = 1;

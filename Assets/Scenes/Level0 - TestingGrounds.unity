@@ -3395,16 +3395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42d6c7f2e7902478703a6d23f18ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  animator: {fileID: 1114279160}
   maxHealth: 100
   dieClip: {fileID: 0}
   hitClip: {fileID: 0}
---- !u!95 &1114279160 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 418074658456109520, guid: bc2f97faa1796a9448bdd215ffbce851, type: 3}
-  m_PrefabInstance: {fileID: 6362098264853957983}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1376422441
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,7 +68,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.18, y: -1.2, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8422976258876739500}
   - {fileID: 8422976258095881557}
@@ -165,8 +165,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.56120425}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.47, y: 0.5}
-    oldSize: {x: 4.8, y: 1.52}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.84, y: 1.52}
     newSize: {x: 0.84, y: 1.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -288,7 +288,8 @@ MonoBehaviour:
   maxAcceleration: 40
   maxAirAcceleration: 20
   maxHealth: 100
-  audio: {fileID: 0}
+  hurtClip: {fileID: 8300000, guid: 9826c5367f77c5142b49ebe21f8ed854, type: 3}
+  dieClip: {fileID: 8300000, guid: 587e440f25805874689593e864f09b58, type: 3}
 --- !u!114 &2749148935059230972
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,26 +1,31 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlyingSword : MonoBehaviour
 {
-    Transform attack1point1;
-    Transform attack1point2;
+    PolygonCollider2D c;
     public float attackRange = 0.5f;
     public int attackDamage = 40;
     public LayerMask enemyLayer;
 
     void Start()
     {
-        attack1point1 = GameObject.Find("attack1point1").transform;
-        attack1point2 = GameObject.Find("attack1point2").transform;
-        enemyLayer = 1 << 6;
+        c = GetComponent<PolygonCollider2D>();
+
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y-.5f);
-        if(transform.position.y < -10) Destroy(gameObject);
-        //Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
-        //foreach (Collider2D enemy in hit1Enemies1)
-        //    enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+        transform.position = new Vector2(transform.position.x, transform.position.y - .5f);
+        if (transform.position.y < -10) Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag != "Player") return;
+        c.enabled= false;
+        collision.GetComponent<Move>().TakeDamage(attackDamage);
+
+    }
+
 }

@@ -14,9 +14,9 @@ public class Move : MonoBehaviour
     int currentHealth;
 
     [Space]
-    [SerializeField] AudioSource audio;
-    private AudioClip dieClip;
-    private AudioClip hurtClip;
+    private new AudioSource audio;
+    [SerializeField] AudioClip hurtClip;
+    [SerializeField] AudioClip dieClip;
 
     private Vector2 direction;
     private Vector2 desiredVelocity;
@@ -41,7 +41,11 @@ public class Move : MonoBehaviour
         ground = GetComponent<Ground>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audio = gameObject.AddComponent<AudioSource>();
+
+        
         currentHealth = maxHealth;
+
     }
 
 
@@ -92,30 +96,29 @@ public class Move : MonoBehaviour
     {
         currentHealth -= damage;
 
-
         //Play hurt animation
         animator.SetTrigger("hurt");
-        
+       
         Debug.Log("Player Hurt");
 
-        if (currentHealth <= 0)
-        {
-            Die();
-            
-        }
+        // cheat - never die
+        currentHealth = 1;
+       
+        if (currentHealth <= 0) Die();
+        else { audio.clip = hurtClip; audio.Play(); }
     }
 
     void Die()
     {
-        Debug.Log("Enemy died");
+        Debug.Log("Player died");
+        audio.clip = dieClip; audio.Play();
+        //if (gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
+        ////Die animation
+        //animator.SetBool("IsDead", true);
 
-        if (gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
-        //Die animation
-        animator.SetBool("IsDead", true);
-
-        //Disable the enemy
-        gameObject.layer = 12;
-        enabled = false;
+        ////Disable the enemy
+        //gameObject.layer = 12;
+        //enabled = false;
 
     }
 }

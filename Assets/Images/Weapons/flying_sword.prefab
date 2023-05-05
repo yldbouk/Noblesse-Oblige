@@ -98,10 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3a7a1fbfd84e64a8715443abdace31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack1point1: {fileID: 0}
-  attack1point2: {fileID: 0}
   attackRange: 0.5
-  attackDamage: 40
+  attackDamage: 10
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -138,9 +136,9 @@ PolygonCollider2D:
       - {x: 0.10564019, y: -0.34640273}
       - {x: 0.15497199, y: -0.34448668}
       - {x: 0.21118489, y: -0.29945725}
-      - {x: 0.38102722, y: -0.46995774}
-      - {x: 0.46730384, y: -0.47308823}
-      - {x: 0.47541302, y: -0.3738848}
+      - {x: 0.17990689, y: -0.29478836}
+      - {x: 0.24023241, y: -0.24601671}
+      - {x: 0.27429277, y: -0.18573996}
       - {x: 0.30002323, y: -0.20587692}
       - {x: 0.34006968, y: -0.16117884}
       - {x: 0.3344631, y: -0.08985382}

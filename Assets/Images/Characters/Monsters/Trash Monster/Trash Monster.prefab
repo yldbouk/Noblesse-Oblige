@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 2044065824409673606}
   - component: {fileID: 6665637280599851256}
   - component: {fileID: 1456767944423677909}
-  - component: {fileID: 1740203552}
+  - component: {fileID: 2426140771286101181}
   m_Layer: 11
   m_Name: Trash Monster
   m_TagString: Enemy
@@ -235,8 +235,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42d6c7f2e7902478703a6d23f18ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 0}
-  animator: {fileID: 1456767944423677909}
   maxHealth: 100
   dieClip: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
   hitClip: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
@@ -261,7 +259,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1740203552
+--- !u!114 &2426140771286101181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,14 +272,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  distanceThreshold: 1.6
-  attackCooldown: 2
+  attackDistanceThreshold: 1.6
+  trackDistanceThreshold: 20
+  attackCooldown: 4
   invertAxis: 1
   attackPoint1: {fileID: 236815580}
   attackPoint2: {fileID: 168795778}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   attackDamage: 40
   attackRange: 0.5
   attackRate: 2

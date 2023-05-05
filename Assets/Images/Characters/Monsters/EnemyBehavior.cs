@@ -9,7 +9,8 @@ public class EnemyBehavior : MonoBehaviour
     GameObject target;
 
     [SerializeField] float speed;
-    [SerializeField] float distanceThreshold;
+    [SerializeField] float attackDistanceThreshold;
+    [SerializeField] float trackDistanceThreshold;
     [SerializeField] float attackCooldown;
     [SerializeField] bool invertAxis;
 
@@ -38,8 +39,9 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (animator.GetBool("IsDead")) Destroy(this);
         if (!readyToAttack) return;
-
-        if (Vector2.Distance(transform.position, target.transform.position) > distanceThreshold)
+        float distanceFromPlayer = Vector2.Distance(transform.position, target.transform.position);
+        if (distanceFromPlayer > trackDistanceThreshold) return;
+        if (distanceFromPlayer > attackDistanceThreshold)
         {
             animator.SetBool("IsRunning", true);
             direction = (transform.position.x < target.transform.position.x);
@@ -74,7 +76,7 @@ public class EnemyBehavior : MonoBehaviour
             enemy.GetComponent<Move>().TakeDamage(attackDamage);
         }
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.1f);
         animator.SetBool("IsNearPlayer", false);
         yield return new WaitForSeconds(attackCooldown);
         readyToAttack = true;

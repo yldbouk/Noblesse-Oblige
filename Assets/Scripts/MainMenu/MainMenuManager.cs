@@ -1,17 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class MainMenuManager : MonoBehaviour
 { 
     public Canvas canvas;
     MainManager mainManager;
     private List<string> views;
+
+    [SerializeField] AudioClip backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +19,9 @@ public class MainMenuManager : MonoBehaviour
 
         // get reference to main mangger
         mainManager = GameObject.Find("Manager").GetComponent<MainManager>();
+
+        // play bgm
+        mainManager.PlayBGM(backgroundMusic, .5f);
 
         // link camera to canvas
         canvas.worldCamera = Camera.main;
@@ -42,7 +44,7 @@ public class MainMenuManager : MonoBehaviour
         } else Debug.Log("Switching menu view to " + view);
         foreach (Transform t in canvas.transform) t.gameObject.SetActive(t.name == view);
     }
-    public void ButtonPressed(String op)
+    public void ButtonPressed(string op)
     {
         switch (op)
         {

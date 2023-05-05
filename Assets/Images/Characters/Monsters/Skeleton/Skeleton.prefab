@@ -213,8 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e42d6c7f2e7902478703a6d23f18ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 2504580568297144167}
-  animator: {fileID: 2504580568297144187}
   maxHealth: 100
   dieClip: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
   hitClip: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
@@ -231,7 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  distanceThreshold: 1.2
+  attackDistanceThreshold: 1.4
+  trackDistanceThreshold: 20
   attackCooldown: 2
   invertAxis: 0
   attackPoint1: {fileID: 1997579606}

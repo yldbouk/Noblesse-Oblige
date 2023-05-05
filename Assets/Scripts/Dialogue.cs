@@ -37,8 +37,17 @@ public static class Dialogue
         "I shall fight thee with every fiber of my being, and shall not rest until thou art vanquished.",
         "Thou would slay thy father?",
         "'Tis Nobelesse Oblige... The noble's obligation to safeguard his people.",
-        "Very well. Behold!"
+        "Very well. Behold!",
+        "Tis impossible... How could this come to pass? Thou art but a mere mortal, and yet thou hast vanquished me... I... I cannot...",
+        "No matter... My essence shall endure. I will not be vanished so easily... I shall return, more formidable than ever before... This is not over, young prince... Mark my words. I shall return..."
     };
+
+    public static readonly string[] credits =
+        {
+        "Programmed By:\nMatthew Donoho\nYoussef Dbouk",
+        "Level Design - Jackson Ball\nCharacter Design - Matthew Donoho\nBoss Design - Youssef Dbouk\nSound Design - Richard Truong",
+        "Thanks For Playing Our Game"
+        };
 
 
 

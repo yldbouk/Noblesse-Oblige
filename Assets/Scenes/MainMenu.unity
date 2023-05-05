@@ -846,6 +846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1468533479}
+  backgroundMusic: {fileID: 8300000, guid: bb5a0e51f55f6c84c839471a0efa6bdb, type: 3}
 --- !u!4 &941660437
 Transform:
   m_ObjectHideFlags: 0

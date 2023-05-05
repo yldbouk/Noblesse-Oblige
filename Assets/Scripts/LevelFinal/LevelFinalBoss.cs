@@ -1,6 +1,6 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEditorInternal;
 using UnityEngine;
 
@@ -11,6 +11,7 @@ public class LevelFinalBoss : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
     public AudioSource hurt;
+    public AudioSource hurtDead;
 
     public Transform attack1point1;
     public Transform attack1point2;
@@ -30,12 +31,8 @@ public class LevelFinalBoss : MonoBehaviour
 
     public GameObject flyingSword;
 
-    
-
+    private List<int> attacks = new List<int> { 0, 1, 2 };
     bool readyToAttack = true;
-
-
-
     private bool _attacking;
     public bool attacking {
         get {
@@ -45,7 +42,6 @@ public class LevelFinalBoss : MonoBehaviour
 
     void HELPERBeginAttack() { _attacking = true; }
     void HELPEREndAttack()   { _attacking = false; }
-    void HELPERHit() { hurt.Play(); }
 
 
     void Awake()
@@ -59,71 +55,50 @@ public class LevelFinalBoss : MonoBehaviour
 
     void Update()
     {
-        while (currentHealth > 0)
+        if (currentHealth <= 0 || !readyToAttack) return;
+        if(attacks.Count == 0) attacks = new List<int> {0,1,2};
+        int attack = Random.Range(0, attacks.Count);
+        switch (attacks[attack])
         {
-            if (!readyToAttack) return;
-            switch (Random.Range(0, 3))
-            {
-                case 0: readyToAttack = false; StartCoroutine(AttackRush()); break;
-                case 1: readyToAttack = false; StartCoroutine(AttackJumpRush());  break;
-                case 2: readyToAttack = false; StartCoroutine(AttackJumpThrow()); break;
+            case 0: readyToAttack = false; StartCoroutine(AttackRush());      break;
+            case 1: readyToAttack = false; StartCoroutine(AttackJumpRush());  break;
+            case 2: readyToAttack = false; StartCoroutine(AttackJumpThrow()); break;
 
-            }
         }
+        attacks.RemoveAt(attack);
     }
 
-    //private void collideCheck()
-    //{
-    //    Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
-    //    Collider2D[] hit1Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
-    //    foreach (Collider2D enemy in hit1Enemies1)
-    //        enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-    //    foreach (Collider2D enemy in hit1Enemies2)
-    //        enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-    //}
+    private void collideCheck()
+    {
+        Collider2D[] hit1Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
+        Collider2D[] hit1Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hit1Enemies1)
+            enemy.GetComponent<Move>().TakeDamage(attackDamage);
+        foreach (Collider2D enemy in hit1Enemies2)
+            enemy.GetComponent<Move>().TakeDamage(attackDamage);
+    }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        //Play hurt animation
         animator.SetTrigger("Hurt");
-
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        if (currentHealth <= 0) Die();
+        else hurt.Play();
     }
 
     void Die()
     {
-        Debug.Log("Enemy died");
-
-        //Die animation
-        animator.SetBool("IsDead", true);
-
-        //Disable the enemy
-        rb.isKinematic = true;
-        GetComponent<BoxCollider2D>().enabled = false;
-        //animator.enabled = false;
-        this.enabled = false;
-
+        hurtDead.Play();
+        if (animator.GetBool("Dead")) return;
+        animator.SetBool("Dead", true);
+        StartCoroutine(GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossKilled());
+        enabled = false;
     }
 
     //Attack 1
     private IEnumerator AttackRush()
     {
         animator.SetInteger("state", 1);
-
-        //collideCheck();
-
-        //Collider2D[] hit2Enemies1 = Physics2D.OverlapCircleAll(attack1point1.position, attackRange, enemyLayer);
-        //Collider2D[] hit2Enemies2 = Physics2D.OverlapCircleAll(attack1point2.position, attackRange, enemyLayer);
-        //foreach (Collider2D enemy in hit2Enemies1)
-        //    enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-        //foreach (Collider2D enemy in hit2Enemies2)
-        //    enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-
 
         while (Vector2.Distance(transform.position, player.transform.position) > 1.9f)
         {
@@ -134,6 +109,8 @@ public class LevelFinalBoss : MonoBehaviour
         }
         animator.SetInteger("state", 0);
         animator.SetTrigger("attack");
+        yield return new WaitForSeconds(.5f);
+        collideCheck();
         yield return new WaitForSeconds(2);
         readyToAttack = true; 
 
@@ -143,7 +120,6 @@ public class LevelFinalBoss : MonoBehaviour
     private IEnumerator AttackJumpRush()
     {
         animator.SetTrigger("jump");
-        //collideCheck();
         rb.velocity = new Vector2(0, 15);
         yield return new WaitForSeconds(1);
         rb.gravityScale = 0;
@@ -153,12 +129,15 @@ public class LevelFinalBoss : MonoBehaviour
         animator.SetBool("falling", true);
         rb.gravityScale = 2;
         rb.velocity = player.transform.position - transform.position;
-        //yield return new WaitForSeconds(.1f);
+        sprite.flipX = transform.position.x > player.transform.position.x;
+        yield return new WaitForSeconds(.1f);
         while (rb.velocity.y < 0) yield return null;
         animator.SetBool("falling", false);
         animator.SetTrigger("attack2");
+        yield return new WaitForSeconds(.65f);
+        collideCheck();
         rb.gravityScale = 1;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         readyToAttack = true;
     }
 
@@ -171,25 +150,31 @@ public class LevelFinalBoss : MonoBehaviour
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
 
-        yield return new WaitForSeconds(2);
-
         animator.SetBool("falling", true);
 
         for (int i = 0; i < 8; i++) { StartCoroutine(Throw()); yield return new WaitForSeconds(.3f); }
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
-        rb.gravityScale = 1;
+        animator.SetBool("falling", true);
+        rb.gravityScale = 2;
+        rb.velocity = player.transform.position - transform.position;
+        sprite.flipX = transform.position.x > player.transform.position.x;
+        yield return new WaitForSeconds(.1f);
         while (rb.velocity.y < 0) yield return null;
         animator.SetBool("falling", false);
         animator.SetTrigger("attack2");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(.65f);
+        collideCheck();
+        rb.gravityScale = 1;
+        yield return new WaitForSeconds(2);
         readyToAttack = true;
     }
 
     private IEnumerator Throw()
     {
         int offset = Random.Range(-10, 11);
-        Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offset, 10), Quaternion.AngleAxis(135, Vector3.forward));  
+        var forsee = Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offset, 10), Quaternion.AngleAxis(135, Vector3.forward)); 
+        forsee.GetComponent<PolygonCollider2D>().enabled = false;
         yield return new WaitForSeconds(1);
  
         var sword = Instantiate(flyingSword, new Vector2(Camera.main.transform.position.x + offset, 10), Quaternion.AngleAxis(135, Vector3.forward));
