@@ -23,6 +23,7 @@ public class LevelFinalBoss : MonoBehaviour
     public float attackRange = 0.5f;
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
+    
     private bool direction = true;
 
     public int maxHealth = 100;
@@ -32,7 +33,7 @@ public class LevelFinalBoss : MonoBehaviour
     public GameObject flyingSword;
 
     private List<int> attacks = new List<int> { 0, 1, 2 };
-    bool readyToAttack = true;
+    private bool readyToAttack = true;
     private bool _attacking;
     public bool attacking {
         get {

@@ -37,24 +37,17 @@ public class enemy : MonoBehaviour
         currentHealth -= damage;
         //Play hurt animation
         animator.SetTrigger("Hurt");
-        audio.clip = hitClip; audio.Play();
-        //Debug.Log("Hurt");
 
-        if(currentHealth <= 0) 
-        {
-            Die();
-            audio.clip = dieClip; audio.Play();
-        }
+        if (currentHealth <= 0) Die(); 
+        else { audio.clip = hitClip; audio.Play(); }
+            
     }
 
     void Die()
     {
-        //Debug.Log("Enemy died");
-        
-        //Die animation
+        if (animator.GetBool("IsDead")) return;
         animator.SetBool("IsDead", true);
-
-        //Disable the enemy
+        audio.clip = dieClip; audio.Play();
         gameObject.layer = 12;
         enabled = false;
         

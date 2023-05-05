@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -33,6 +34,8 @@ public class Move : MonoBehaviour
     private float acceleration;
     private bool onGround;
 
+    private bool invincible = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,9 +46,7 @@ public class Move : MonoBehaviour
         animator = GetComponent<Animator>();
         audio = gameObject.AddComponent<AudioSource>();
 
-        
         currentHealth = maxHealth;
-
     }
 
 
@@ -54,7 +55,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mainManager.inCutscene) return;
+        if (mainManager.inCutscene || animator.GetBool("IsDead")) return;
 
         direction.x = input.RetrieveMoveInput();
 
@@ -80,7 +81,7 @@ public class Move : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (mainManager.inCutscene) return;
+        if (mainManager.inCutscene || animator.GetBool("IsDead")) return;
 
         onGround = ground.GetOnGround();
         velocity = body.velocity;
@@ -94,31 +95,41 @@ public class Move : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (invincible || animator.GetBool("IsDead")) return; 
+        invincible = true;
         currentHealth -= damage;
-
+        
         //Play hurt animation
         animator.SetTrigger("hurt");
        
         Debug.Log("Player Hurt");
 
         // cheat - never die
-        currentHealth = 1;
+        //currentHealth = 1;
        
         if (currentHealth <= 0) Die();
         else { audio.clip = hurtClip; audio.Play(); }
+        StartCoroutine(DamageCooldown(.5f));
     }
 
     void Die()
     {
         Debug.Log("Player died");
         audio.clip = dieClip; audio.Play();
-        //if (gameObject.name == "Boss") GameObject.Find("SceneManager").GetComponent<LevelFinalManager>().BossDefeated();
-        ////Die animation
-        //animator.SetBool("IsDead", true);
 
-        ////Disable the enemy
-        //gameObject.layer = 12;
-        //enabled = false;
+        //Die animation
+        animator.SetBool("IsDead", true);
 
+        Physics2D.IgnoreLayerCollision(6, 11, true);
+
+        StartCoroutine(mainManager.ResetLevel());
+    }
+
+    IEnumerator DamageCooldown(float f)
+    {
+        yield return new WaitForSeconds(f);
+        invincible = false;
     }
 }
+
+

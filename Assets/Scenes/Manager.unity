@@ -315,8 +315,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blackOverlay: {fileID: 1841560834}
-  debugMode: 1
+  debugMode: 0
   inCutscene: 0
+  hasDiedBefore: 0
 --- !u!4 &426025869
 Transform:
   m_ObjectHideFlags: 0
@@ -624,7 +625,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1

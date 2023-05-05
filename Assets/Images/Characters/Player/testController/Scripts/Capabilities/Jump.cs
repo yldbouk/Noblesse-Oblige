@@ -48,7 +48,7 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (mainManager.inCutscene) return;
+        if (mainManager.inCutscene || animator.GetBool("IsDead")) return;
 
         onGound = false;
         desiredJump |= input.RetrieveJumpInput();

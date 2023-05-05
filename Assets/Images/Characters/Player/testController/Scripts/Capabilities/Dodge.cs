@@ -40,7 +40,7 @@ public class Dodge : MonoBehaviour
 
     void Update()
     {
-        if (mainManager.inCutscene) return;
+        if (mainManager.inCutscene || animator.GetBool("IsDead")) return;
         desiredDash |= input.RetrieveDodgeInput();
     }
 

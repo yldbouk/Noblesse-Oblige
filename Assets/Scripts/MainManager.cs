@@ -10,6 +10,8 @@ public class MainManager : MonoBehaviour
 
     public bool debugMode;
     public bool inCutscene = false;
+
+    public bool hasDiedBefore = false;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class MainManager : MonoBehaviour
         Scene s = SceneManager.GetSceneAt(1);
         Debug.Log("Unloading " + s.name + ", Loading " + newLevel);
         SceneManager.UnloadSceneAsync(s);
+        hasDiedBefore = false;
         SceneManager.LoadScene(newLevel, LoadSceneMode.Additive);
 
     }
@@ -78,9 +81,22 @@ public class MainManager : MonoBehaviour
     public void PlayBGM(AudioClip c, float delay = 0)
     {
         Debug.Log("Now Playing: " + c);
-        bgm.Pause();
+        bgm.Stop();
         bgm.clip = c;
         bgm.PlayDelayed(delay);
+    }
+
+    public IEnumerator ResetLevel()
+    {
+        hasDiedBefore = true;
+        yield return new WaitForSeconds(2);
+        yield return OverlayFadeOut(1000);
+        string s = SceneManager.GetSceneAt(1).name;
+        Debug.Log("Reloading Scene "+s);
+        SceneManager.UnloadSceneAsync(s).completed += 
+            delegate { SceneManager.LoadScene(s, LoadSceneMode.Additive); };
+        
+
     }
 
 }

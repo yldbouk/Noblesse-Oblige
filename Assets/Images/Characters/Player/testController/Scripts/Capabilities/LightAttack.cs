@@ -40,7 +40,7 @@ public class LightAttack : MonoBehaviour
 
     void Update()
     {
-        if (mainManager.inCutscene) return;
+        if (mainManager.inCutscene || animator.GetBool("IsDead")) return;
         desireAttack |= input.RetrieveAttackInput(); 
     }
 

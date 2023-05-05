@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,17 +25,6 @@ public class LevelFinalManager : MonoBehaviour
     [Space]
     [SerializeField] AudioClip backgroundMusic;
 
-    public void DEBUGSkipCutscene()
-    {
-        Camera.main.GetComponent<AudioSource>().time = 101.3f;
-        dialogueBG.SetActive(false);
-        foreach (var o in DomainExpansionToDisable) o.SetActive(false);
-        foreach (var o in DomainExpansionToEnable) o.SetActive(true);
-        mainManager.OverlayOff();
-        mainManager.inCutscene = false;
-        boss.enabled = true;
-
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -44,15 +34,13 @@ public class LevelFinalManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelFinalPlayer>();
         boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<LevelFinalBoss>();
 
-        Camera.main.GetComponent<AudioSource>().volume = .3f;
-        mainManager.PlayBGM(backgroundMusic);
+        Camera.main.transform.position = new Vector3(0, 0, -10);
+        Camera.main.GetComponent<AudioSource>().Stop();
 
-        if (mainManager.debugMode && Input.GetKey(KeyCode.RightShift)) { DEBUGSkipCutscene(); return; }
+        if (mainManager.debugMode && Input.GetKey(KeyCode.RightShift)) mainManager.hasDiedBefore = true;
 
-
-        StartCoroutine(WaitForDomainExpansion());
-        StartCoroutine(Cutscene());
-
+        if(mainManager.hasDiedBefore) StartCoroutine(CutsceneAlternative());
+        else StartCoroutine(Cutscene());
 
     }
 
@@ -69,6 +57,7 @@ public class LevelFinalManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(.65f);
         audioTimeFrozen.Play();
+        Camera.main.AddComponent<CameraMovementSmooth>();
         mainManager.OverlayOff(true);
         mainManager.inCutscene = false;
         boss.enabled = true;
@@ -76,7 +65,11 @@ public class LevelFinalManager : MonoBehaviour
 
 
     IEnumerator Cutscene()
-    {
+    {        
+        mainManager.PlayBGM(backgroundMusic);
+        Camera.main.GetComponent<AudioSource>().volume = .3f;
+        StartCoroutine(WaitForDomainExpansion());
+
         Debug.Log("Starting Cutscene");
         mainManager.inCutscene = true;
         yield return new WaitForSeconds(3);
@@ -121,6 +114,32 @@ public class LevelFinalManager : MonoBehaviour
 
         yield return PlayDialogue(Dialogue.bossFinal[11], "Boss", blipBoss);
         yield return new WaitForSeconds(1);
+    }
+
+    IEnumerator CutsceneAlternative()
+    {
+        mainManager.PlayBGM(backgroundMusic);
+        Camera.main.GetComponent<AudioSource>().time = 0;
+        mainManager.inCutscene = true;
+        yield return new WaitForSeconds(1);
+        //Physics2D.IgnoreLayerCollision(6, 11, true);
+        yield return mainManager.OverlayFadeIn(500);
+        yield return player.GoToWaypoint();
+        yield return new WaitForSeconds(1);
+
+        dialogueBG.SetActive(true);
+        yield return PlayDialogue("Once Again!", "Boss", blipBoss);
+        yield return new WaitForSeconds(1);
+        dialogueBG.SetActive(false);
+
+        Camera.main.GetComponent<AudioSource>().time = 101.3f;
+
+        foreach (var o in DomainExpansionToDisable) o.SetActive(false);
+        foreach (var o in DomainExpansionToEnable) o.SetActive(true);
+        Camera.main.AddComponent<CameraMovementSmooth>();
+        mainManager.OverlayOff(true);
+        mainManager.inCutscene = false;
+        boss.enabled = true;
     }
 
     public IEnumerator BossKilled()
