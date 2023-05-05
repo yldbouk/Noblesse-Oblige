@@ -45,28 +45,28 @@ public class Level1Manager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 11, true);
         yield return mainManager.OverlayFadeIn(2000);
         yield return player.GoToWaypoint();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
 
         dialogueBG.SetActive(true);
         yield return PlayDialogue(Dialogue.boss1[0], "Player", blipPlayer);
         
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(2);
 
         yield return PlayDialogue(Dialogue.boss1[1], "Brother", blipBoss);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
 
         yield return PlayDialogue(Dialogue.boss1[2], "Player", blipPlayer);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSecondsRealtime(2);
 
         StartCoroutine(boss.GoTo(player.transform.position));
         yield return PlayDialogue(Dialogue.boss1[3], "Brother", blipBoss);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
 
         yield return PlayDialogue(Dialogue.boss1[4], "Player", blipPlayer, .08f);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
 
         yield return PlayDialogue(Dialogue.boss1[5], "Brother", blipBoss, .8f);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSecondsRealtime(.5f);
 
         dialogueBG.SetActive(false);
         boss.animationState = 2;
@@ -76,7 +76,7 @@ public class Level1Manager : MonoBehaviour
         player.GetComponent<Animator>().speed = 0;
         boss.GetComponent<Animator>().speed = 0;
         Camera.main.GetComponent<CameraGrayscale>().enabled = true;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
 
         audioTooltip.Play();
         tooltipText.SetActive(true);
@@ -97,24 +97,24 @@ public class Level1Manager : MonoBehaviour
         //boss.Attack();
         boss.readyToAttack = false;
         while(playerRB.velocity.x > 0) yield return null;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSecondsRealtime(.5f);
         boss.animationState = 0;
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSecondsRealtime(2.5f);
 
         boss.GetComponent<SpriteRenderer>().flipX = true;
         Physics2D.IgnoreLayerCollision(6, 11, false);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
 
         dialogueBG.SetActive(true);
         yield return PlayDialogue(Dialogue.boss1[6], "Player", blipPlayer);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
 
         yield return PlayDialogue(Dialogue.boss1[7], "Boss", blipBoss);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
         
         dialogueBG.SetActive(false);
         yield return boss.GoTo(player.transform.position);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSecondsRealtime(.5f);
         boss.animationState = 2;
         while (!boss.readyToAttack) yield return null;
 
@@ -122,7 +122,7 @@ public class Level1Manager : MonoBehaviour
         player.GetComponent<Animator>().speed = 0;
         boss.GetComponent<Animator>().speed = 0;
         Camera.main.GetComponent<CameraGrayscale>().enabled = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
 
         audioTooltip.Play();
         tooltipText.transform.transform.position = new Vector2(1100, 182);
@@ -137,19 +137,19 @@ public class Level1Manager : MonoBehaviour
         Camera.main.GetComponent<CameraGrayscale>().enabled = false;
 
         player.GetComponent<Animator>().SetTrigger("Attack");
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSecondsRealtime(.15f);
 
         audioHit.Play();
         globalToolTipBG.SetActive(true);
         boss.gameObject.SetActive(false);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
 
         audioTooltip.Play();
         globalTooltipText.text = "You Killed Your Brother";
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSecondsRealtime(5);
         audioTooltip.Play();
         globalTooltipText.text = "Congratulations";
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
 
         globalToolTipBG.SetActive(false); 
         foreach (Collider2D c in collidersToEnableAfterCutscene) c.enabled = true;
@@ -179,7 +179,7 @@ public class Level1Manager : MonoBehaviour
                 case '?': s *= 10; break;          
             }
 
-            yield return new WaitForSeconds(s);
+            yield return new WaitForSecondsRealtime(s);
         }
     }
 }

@@ -25,10 +25,7 @@ public class enemy : MonoBehaviour
         currentHealth = maxHealth;
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-    
     }
-
-    
 
     public void TakeDamage(int damage)
     {

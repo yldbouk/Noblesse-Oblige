@@ -33,7 +33,7 @@ public class PrologueManager : MonoBehaviour
     IEnumerator startCutScene()
     {
         yield return mainManager.OverlayFadeIn();
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSecondsRealtime(.5f);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[0]);
         yield return waitForInput();
@@ -42,7 +42,7 @@ public class PrologueManager : MonoBehaviour
         yield return waitForInput();
 
         prologueText.text = "";
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSecondsRealtime(.25f);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[2]);
         yield return waitForInput();
@@ -68,16 +68,16 @@ public class PrologueManager : MonoBehaviour
         yield return mainManager.OverlayFadeIn(1000, true);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[4], true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSecondsRealtime(5);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[5], true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[6], true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
 
         yield return DisplayCharacterByCharacter(Dialogue.prologue[7], true);
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSecondsRealtime(4);
 
         yield return mainManager.OverlayFadeOut(3000);
         mainManager.LoadNewLevel("Level1");
@@ -106,7 +106,7 @@ public class PrologueManager : MonoBehaviour
                 case '.': s += .2f;  break;
             }
  
-            yield return new WaitForSeconds(s);
+            yield return new WaitForSecondsRealtime(s);
         }
         prologueText.text += "\n\n";
     }

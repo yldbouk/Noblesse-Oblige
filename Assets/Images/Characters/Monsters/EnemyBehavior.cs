@@ -61,24 +61,14 @@ public class EnemyBehavior : MonoBehaviour
         animator.SetBool("IsNearPlayer", true);
 
         // Detect enemies in range of attack
-        yield return new WaitForSeconds(.65f);
+        yield return new WaitForSecondsRealtime(.65f);
 
-        Collider2D[] hitEnemies1 = Physics2D.OverlapCircleAll(attackPoint1.position, attackRange, enemyLayer);
-        Collider2D[] hitEnemies2 = Physics2D.OverlapCircleAll(attackPoint2.position, attackRange, enemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(((!sprite.flipX ^ invertAxis) ? attackPoint1 : attackPoint2).position, attackRange, enemyLayer);
+        foreach (Collider2D enemy in hitEnemies) enemy.GetComponent<Move>().TakeDamage(attackDamage);
 
-        // Damage them
-        foreach (Collider2D enemy in hitEnemies1)
-        {
-            enemy.GetComponent<Move>().TakeDamage(attackDamage);
-        }
-        foreach (Collider2D enemy in hitEnemies2)
-        {
-            enemy.GetComponent<Move>().TakeDamage(attackDamage);
-        }
-
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSecondsRealtime(.1f);
         animator.SetBool("IsNearPlayer", false);
-        yield return new WaitForSeconds(attackCooldown);
+        yield return new WaitForSecondsRealtime(attackCooldown);
         readyToAttack = true;
     }
     void OnDrawGizmosSelected()

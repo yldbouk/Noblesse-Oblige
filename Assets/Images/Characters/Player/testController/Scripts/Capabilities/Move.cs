@@ -127,7 +127,7 @@ public class Move : MonoBehaviour
 
     IEnumerator DamageCooldown(float f)
     {
-        yield return new WaitForSeconds(f);
+        yield return new WaitForSecondsRealtime(f);
         invincible = false;
     }
 }

@@ -95,7 +95,7 @@ public class Dodge : MonoBehaviour
         }
 
         //stops player from dashing multible times in a row
-        yield return new WaitForSeconds(dashingTime);
+        yield return new WaitForSecondsRealtime(dashingTime);
 
         //this is also for the afterimage
         
@@ -107,7 +107,7 @@ public class Dodge : MonoBehaviour
         isDashing = false;
 
         //a dash cooldown
-        yield return new WaitForSeconds(dashingCooldown);
+        yield return new WaitForSecondsRealtime(dashingCooldown);
 
         //puts it in the "can dash" state, allowing it to be called and ran again
         canDash = true;

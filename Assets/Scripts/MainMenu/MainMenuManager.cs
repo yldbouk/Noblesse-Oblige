@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MainMenuManager : MonoBehaviour
 { 
@@ -36,6 +34,7 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
+
     public void switchViews(string view)
     {
         if (!views.Contains(view)) { 
@@ -57,11 +56,21 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Play button pressed");
 
-        // fade to black
-        yield return StartCoroutine(mainManager.OverlayFadeOut(1000));
+        if (Input.GetKey(KeyCode.BackQuote))
+        {
+            mainManager.DEBUGLoadMenu();
+            GameObject.Find("debugmenu").GetComponent<Canvas>().enabled = true;
+            enabled = false;
+        }
+        else
+        {
+            UnityEngine.Cursor.visible = false;
+            // fade to black
+            yield return StartCoroutine(mainManager.OverlayFadeOut(1000));
 
-        // load next scene
-        mainManager.LoadNewLevel("Prologue");
+            // load next scene
+            mainManager.LoadNewLevel("Prologue");
+        }
     }
     IEnumerator ExitGame()
     {
