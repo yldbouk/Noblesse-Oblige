@@ -4074,14 +4074,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2504580568297144184, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
-      propertyPath: dieClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
-    - target: {fileID: 2504580568297144184, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
-      propertyPath: hitClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 845ec6107ef28734f9abf6fd8249c7d6, type: 3}
 --- !u!1001 &2749148935264683177
@@ -4139,10 +4131,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: testingGroundsKnight
       objectReference: {fileID: 0}
-    - target: {fileID: 8422976258464458689, guid: b450aeae072e0db4d824532512aea777, type: 3}
-      propertyPath: jumpClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4408707996114fb4a80b3ae49c83d7d3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b450aeae072e0db4d824532512aea777, type: 3}
 --- !u!4 &3511885071017937392 stripped
@@ -4278,13 +4266,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trash Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 6665637280599851256, guid: 31f9ec78a07aabe4faf38f428ed5507e, type: 3}
-      propertyPath: dieClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 19b5d2def9a78fd4abed85ebd70e313e, type: 3}
-    - target: {fileID: 6665637280599851256, guid: 31f9ec78a07aabe4faf38f428ed5507e, type: 3}
-      propertyPath: hitClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9da1345ba056fec47985835e1620137a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31f9ec78a07aabe4faf38f428ed5507e, type: 3}
